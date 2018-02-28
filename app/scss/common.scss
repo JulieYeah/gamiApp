@@ -1,0 +1,38 @@
+@import "reset.scss";
+@import "component.scss";
+
+/* common */
+html,body{
+    height: 100%;
+}
+body{
+  background: radial-gradient(rgb(52, 84, 93), rgb(30, 51, 58));
+}
+.abs{
+    position: absolute !important;
+  }
+  
+  .rel{
+    position: relative !important;
+  }
+  
+  .fixed{
+    position: fixed !important;
+  }
+  
+  .alignC{
+    text-align: center !important;
+  }
+  
+  .placeC{
+    margin: 0 auto;
+  }
+  .floatR{
+    float: right
+  }
+  .floatL{
+    float:left;
+  }
+  .ib{
+    display: inline-block !important;
+  }

@@ -1,0 +1,20 @@
+//常用的方法
+
+// 当超过宽度时，显示省略号
+
+@mixin ell() {
+    overflow: hidden;
+-ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// 计算字体大小
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+  }
+  
+  @mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+  }
