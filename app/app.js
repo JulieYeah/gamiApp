@@ -8,6 +8,7 @@ angular.module('myApp', [
   'setting',
   'user',
   'mission'
+  
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
@@ -34,6 +35,10 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   }).
   when('/mission', {
     templateUrl: 'mission/mission.html',
+    controller: 'MissionController'
+  }).
+  when('/missionList/:cid', {
+    templateUrl: 'mission/missionList.html',
     controller: 'MissionController'
   })
   ;

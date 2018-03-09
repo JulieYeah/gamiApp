@@ -1,4 +1,4 @@
-<div class="chapter" ng-controller="ChapterController">
+<div class="chapter">
     <div class="header">
         <div class="ib drops">
             <?xml version="1.0" encoding="iso-8859-1"?>
@@ -33,74 +33,23 @@
         </div>
     </div>
     <h2 class="pageTitle alignC">Chapters</h2>
-    <div class="chaperGroup placeC">
-        <div class="chaptereach ib alignC" ng-click="gotoPage('mission')">
+    <div class="chaperGroup placeC alignC">
+        <div class="chaptereach ib alignC" ng-repeat="chapter in chapters">
             <div class="flipper">
                 <div class="front">
                     <!-- front content -->
-                    <p class="title">Math Test</p>
-                    <p class="countDown">100hr</p>
+                    <div class="validContent" ng-click="gotoPage('missionList',chapter.exerciseId)">
+                        <p class="title">{{chapter.title}}</p>
+                        <p class="countDown">{{chapter.timelimit}}</p>
+                        <p class="">{{chapter.timeLength}}</p>
+                    </div>
                 </div>
                 <div class="back">
-                    <!-- back content -->
-                    <p class="title">back</p>
-                    <p class="countDown">100hr</p>
-                </div>
-            </div>
-        </div>
-        <div class="chaptereach ib alignC">
-            <div class="flipper">
-                <div class="front">
-                    <!-- front content -->
-                    <p class="title">Math Test</p>
-                    <p class="countDown">100hr</p>
-                </div>
-                <div class="back">
-                    <!-- back content -->
-                    <p class="title">back</p>
-                    <p class="countDown">100hr</p>
-                </div>
-            </div>
-        </div>
-        <div class="chaptereach ib alignC">
-            <div class="flipper">
-                <div class="front">
-                    <!-- front content -->
-                    <p class="title">Math Test</p>
-                    <p class="countDown">100hr</p>
-                </div>
-                <div class="back">
-                    <!-- back content -->
-                    <p class="title">back</p>
-                    <p class="countDown">100hr</p>
-                </div>
-            </div>
-        </div>
-        <div class="chaptereach ib alignC">
-            <div class="flipper">
-                <div class="front">
-                    <!-- front content -->
-                    <p class="title">Math Test</p>
-                    <p class="countDown">100hr</p>
-                </div>
-                <div class="back">
-                    <!-- back content -->
-                    <p class="title">back</p>
-                    <p class="countDown">100hr</p>
-                </div>
-            </div>
-        </div>
-        <div class="chaptereach ib alignC">
-            <div class="flipper">
-                <div class="front">
-                    <!-- front content -->
-                    <p class="title">Math Test</p>
-                    <p class="countDown">100hr</p>
-                </div>
-                <div class="back">
-                    <!-- back content -->
-                    <p class="title">back</p>
-                    <p class="countDown">100hr</p>
+                    <!-- back content ranks-->
+                    <div class="validContent" ng-click="gotoPage('missionList',chapter.exerciseId)">
+                    <p class="">{{chapter.createdAt}}</p>
+                    <p class="">{{chapter.createdBy}}</p>
+                    </div>
                 </div>
             </div>
         </div>

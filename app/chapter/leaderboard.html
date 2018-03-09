@@ -1,0 +1,29 @@
+<div class="leaderboard" ng-controller="ChapterController">
+    <h2 class="leadheader">Leaderboard</h2>
+    
+    <div class="row colheader">
+        <div class="col-2">
+            <h4>#</h4>
+        </div>
+        <div class="col-6">
+            <h4>Name</h4>
+        </div>
+        <div class="col-3 rewards">
+            <h4 ng-click="onClickearn">Rewards</h4>
+        </div>
+       
+    </div>
+    <div class="row users">
+        <div class="col-2 rank">
+            <h4>{ rank }</h4>
+        </div>
+        <div class="col-6 name">
+            <img src={ img } alt='avatar' />username 
+            <!-- <a href={`https://www.freecodecamp.com/${username}`} target="_blank">{ username }</a> -->
+        </div>
+        <div class="col-3">
+            <h4>{ recent }</h4>
+        </div>
+        
+    </div>
+</div>

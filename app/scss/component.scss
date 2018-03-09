@@ -23,7 +23,6 @@
         .pageTitle{
             @include font-size(24px);
             color: #fff;
-            font-family: 'Neuropol', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
         }
         .setting{
             bottom: 2%;
@@ -41,7 +40,7 @@
     width: 92%;
     .chaptereach{
         @include font-size(16px);
-        width: 19.7%;
+        width: 19.6%;
         height: 80%;
         background: url('../img/base.png') no-repeat;
         .cardContainer{
@@ -73,6 +72,9 @@
         height: 100%;
         width: 100%;
         z-index: 2;
+        p{
+            line-height: 20px;
+        }
         }
     .back{
         position: absolute;
@@ -103,13 +105,33 @@
     background-image: url('../img/icon-user.png');
     background-size: 100% 100%;
 }
+.icon-quit{
+    margin: 25px 50px 0 50px;
+    cursor: pointer;
+    background-image: url(../img/quit.png);
+    width: 54px;
+    height: 54px;
+    background-size: 100% 100%;
+}
 
+.icon-tabs{
+    background-image: url(../img/slotbg.png);
+    width:80px;
+    height: 80px;
+    background-size: 100% 100%;
+    margin: 0 50px;
+    i{
+        margin: 25px auto;
+        @include font-size(24px);
+        
+    }
+}
 .mission{
     .qustion_area{
         background: url(../img/border.png) no-repeat;
         width: 783px;
         height: 354px;
-        margin: 5% auto;
+        margin: 5% auto 4% auto;
     }
     .question_content{
         //top:5%;//calculation required
@@ -117,4 +139,127 @@
         padding-top: 10%;//if height is over acceptable..
 
     }
+    .answer_area{
+        width: 783px;
+        margin: 0 auto;
+    }
 }
+
+// missionList page
+.missionlistContainer{
+    border: 1px solid #fff;
+    width: 50%;
+    margin: 10% auto;
+    text-align: center;
+    padding: 20px;
+   // background-image: url('../img/windowbg.png');
+    h1{
+     @include font-size(34px);
+    }
+    .row{
+        text-align:justify;
+        [class*="col-"]{
+            cursor: pointer;
+            border: 1px solid #fff;
+            margin: 20px;
+            text-align: center
+        }
+        
+    }
+}
+// leaderboard
+.leaderboard{
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+}
+.leadheader {
+    width: 100%;
+    height: 20px;
+    border:1px solid rgba(0, 168, 232, 0.79);
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+    padding-top: 20px;
+    padding: 10px 0;
+}
+  
+  .colheader {
+   // background: rgba(254, 254, 254, 0.9);
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    line-height: 40px;
+    h4 {
+    font-size: 15px;
+     }
+   .time {
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+         }
+    .rewards {
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+        }
+    }
+  
+  .users {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+   // background: #fefefe;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    vertical-align: center;
+  .name {
+   a {
+    padding-top: 15px;
+    vertical-align: middle;}
+}
+   img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    //border: 2px solid rgba(0, 168, 232, 0.79);
+   // margin-right: 10px;
+  }
+  .rank {
+    padding-left: 6px;
+  }
+  &:nth-of-type(odd) {
+   // background: rgba(254, 254, 254, 0.9);
+  }
+  &:nth-of-type(even) {
+    //background: rgba(240, 240, 240, 0.9);
+  }
+  &:last-child {
+    border-radius: 0 0 5px 5px;
+  }
+}
+  
+.validContent{
+    margin:10% 0;
+    height: 80%;
+}
+ 

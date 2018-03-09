@@ -1,0 +1,11 @@
+.row{
+    [class*="col-"]{
+        display: inline-block;
+    }
+    @for $i from 1 through 12{
+        .col-#{$i}{
+            width: $i/12 * 100%;
+        }
+    }
+   
+}
