@@ -1,6 +1,7 @@
 @import "variable.scss";
 @import "mixin.scss";
 @import "grid.scss";
+@import "shapes.scss";
 
 .content{
     height: 100%;
@@ -125,48 +126,82 @@
         @include font-size(24px);
         
     }
+    // cursor: pointer;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
 }
 .mission{
     .qustion_area{
-        background: url(../img/border.png) no-repeat;
-        width: 783px;
-        height: 354px;
+       
         margin: 5% auto 4% auto;
+        width: 100%;
+        [class*="teacher_icon_"]{
+            vertical-align: top;
+            height: max-content;
+        }
+        @for $i from 0 through 20{
+            .teacher_icon_#{$i}{
+                i{
+                    width: 700px;
+                    height: 800px;
+                    transform: scale(.3);
+                    transform-origin: 0 0;
+                    background: url(../img/teacher/teacher_#{$i}.png) no-repeat;
+                }
+            }
+        }
+
     }
     .question_content{
         //top:5%;//calculation required
-        margin: 0 auto;
-        padding-top: 10%;//if height is over acceptable..
+        background: url(../img/border.png) no-repeat;
+        width: 783px;
+        height: 354px;//if height is over acceptable..
+        padding-top: 5%;
+        .question_item{
+            line-height: 50px;
+            margin-left: 10%;
+            text-align: left;
+        }
 
     }
     .answer_area{
         width: 783px;
         margin: 0 auto;
+        .choice_slot{
+            cursor: pointer;
+        }
     }
 }
 
 // missionList page
-.missionlistContainer{
-    border: 1px solid #fff;
-    width: 50%;
-    margin: 10% auto;
-    text-align: center;
-    padding: 20px;
-   // background-image: url('../img/windowbg.png');
-    h1{
-     @include font-size(34px);
-    }
-    .row{
-        text-align:justify;
-        [class*="col-"]{
-            cursor: pointer;
-            border: 1px solid #fff;
-            margin: 20px;
-            text-align: center
+.missionList{
+    height: 100%;
+    .missionlistContainer{
+        width: 50%;
+        height: 100%;
+        text-align: center;
+       // background-image: url('../img/windowbg.png');
+        h1{
+         @include font-size(34px);
         }
-        
+        .missionNum{
+            margin: 20px;
+        }
+        .row{
+            text-align:justify;
+            [class*="col-"]{
+                cursor: pointer;
+                border: 1px solid #fff;
+                margin: 20px;
+                text-align: center
+            }
+            
+        }
     }
 }
+
 // leaderboard
 .leaderboard{
     width: 50%;
@@ -261,5 +296,46 @@
 .validContent{
     margin:10% 0;
     height: 80%;
+}
+
+// missionDone Page
+
+.missionDone{
+    background: url(../img/bg/background_0.png) no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    .bg{
+        
+        /* transform: scale(.8); */
+        /* transform-origin: 0 0; */
+        margin: 0 auto;
+    }
+
+    .valid-content{
+        height: 50%;
+        width: 80%;
+        @include font-size(19px);
+        padding: 40px 0 0 0;
+    }
+
+    .points{
+       @include font-size(21px)
+    }
+}
+
+.windowsOutline{
+    background: url(../img/window.png) top center no-repeat;
+    width: 60%;
+    z-index: 2;
+    height: 100%;
+    background-size: contain;
+    .title{
+        @include font-size(28px);
+        text-align: center;
+        padding: 7% 0 4% 0;
+        line-height: 90px;
+    }
+
 }
  

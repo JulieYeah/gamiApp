@@ -1,13 +1,15 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+var app = angular.module('myApp', [
   'ngRoute',
   'login',
   'chapter',
   'setting',
   'user',
-  'mission'
+  'missionList',
+  'missionDetail',
+  'missionDone'
   
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -34,12 +36,12 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     controller: 'UserController'
   }).
   when('/mission', {
-    templateUrl: 'mission/mission.html',
-    controller: 'MissionController'
+    templateUrl: 'mission/missionDetail.html',
+    controller: 'MissionDetailController'
   }).
   when('/missionList/:cid', {
     templateUrl: 'mission/missionList.html',
-    controller: 'MissionController'
+    controller: 'MissionListController'
   })
   ;
 }]);

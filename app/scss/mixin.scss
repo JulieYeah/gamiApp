@@ -18,3 +18,50 @@
     font-size: $size;
     font-size: calculateRem($size);
   }
+
+//   精灵图制作
+
+$class-prefix: "final-icon-";
+$sprite-image-url: "../img/icons_sprite.png";
+$sprite-grid-size: 20px;
+
+[class*='#{$class-prefix}'] {
+    display: inline-block;
+    width: $sprite-grid-size;
+    height: $sprite-grid-size;
+
+    line-height: $sprite-grid-size;
+    background-image: url(#{$sprite-image-url});
+    background-repeat: no-repeat;
+}
+
+@mixin icon($row, $column) {
+    background-position: -$column*$sprite-grid-size -$row*$sprite-grid-size;
+}
+
+@function getPosition($move, $amout, $offset) {
+    @return (-$move * $amount) + $offset;
+}
+
+$icon: "name", "row", "column";
+
+$icon-list: (
+    ("rightTriangle", 0, 0)
+    ("setting", 0, 1)
+    ("circles", 0, 2)
+    ("leftTriangle", 0, 3)
+    ("add",0,4)
+);
+
+@each $eachicon in $icon-list {
+    // pluck $icon variables
+    $name: nth($eachicon, 1);
+    $row: nth($eachicon, 2);
+    $column: nth($eachicon, 3);
+
+    // create class
+    .#{$class-prefix}#{$name} {
+        // style it
+        @include icon($row, $column);
+    }
+}

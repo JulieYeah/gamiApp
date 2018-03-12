@@ -1,10 +1,12 @@
 <div class="missionList">
    
-    <div class="missionlistContainer">
-        <h1>Mission Board</h1>
-    <div class="row">
+    <div class="missionlistContainer windowsOutline placeC">
+        <h1 class="title">Mission Board</h1>
+    <div class="row alignC">
         <div class="col-{{missionList.length}}" ng-repeat="item in missionList" ng-click="gotoPage('mission')">
-            <span><i>{{$index+1}}</i><br>{{item.type}}</span>
+            <span class="brackets">
+                <i class="missionNum ib">{{$index+1}}</i><br>{{item.type}}
+            </span>
         </div>
     </div>
     </div>

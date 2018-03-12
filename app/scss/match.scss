@@ -1,0 +1,19 @@
+#match{
+    .show span.addstyle{ background:#F96;}
+
+    .showLeft{
+        vertical-align: top;
+    }
+    .canvas{ 
+        position:absolute; 
+        left:0px; 
+        top:0px; 
+        z-index:-1;
+    }
+    .backcanvas{ 
+        position:absolute; 
+        left:0px; 
+        top:0px; 
+        z-index:-2;
+    }
+}

@@ -1,0 +1,120 @@
+<div class="mission" ng-repeat="mission in missionList" ng-show="!finishFlag" ng-if="$index==sequenceIndex">
+    <i class="ib icon-quit" ng-click="quit()"></i>
+    <h2 class="alignC">Mission{{$index+1}}</h2>
+    <div class="qustion_area row rel">
+        <div class="col-1"></div>
+        <div class="col-2 teacher_icon_{{$index}} alignR" ng-class="">
+            <i class="ib"></i>
+            <div class="question_title"> please do relevant caculations :</div>
+        </div>
+        <!-- fill-in-blank -->
+        <div class="question_content col-6 alignC" ng-if='mission.typeId == 0'>
+            please do relevant caculations
+            <div class="question_item row" ng-repeat="item in mission.content">
+                <div class="col-6">{{item}}</div>
+                <div class="col-5">
+                    <div class="input"></div>
+                    <input type="text" ng-model="userAnswer[$index]" class="hiddenInput">
+                </div>
+            </div>
+        </div>
+        <!-- olg pair up -->
+        <!-- <div class="question_content col-6 alignC" id="match" ng-if='mission.typeId == 1'>
+            please pair up
+            <div class="question_item row" ng-repeat="item in mission.content">
+                <div class="col-6 showLeft"><span>{{item}}</span></div>
+                <div class="col-5 showRight"><span>{{mission.choices[$index]}}</span>
+                </div>
+            </div>
+            <canvas id="demo1"></canvas>
+        </div> -->
+
+        <div class="question_content col-6 alignC rel demo" id="match" ng-if='mission.typeId == 1'>
+            please pair up
+            <div class="question_item row show">
+                <div class="col-6 showLeft">
+                    <span class="leftItem" top='0' id="leftItem{{$index}}" ng-repeat="item in mission.content" ng-click="drawLine($index)">{{item}}</br></span>
+                </div>
+                <div class="col-5 showRight">
+                    <span clss="rightItem" id="rightItem{{$index}}" ng-repeat="item in mission.content" >{{mission.choices[$index]}}</br></span></br>
+                </div>
+            </div>
+            <canvas class="canvas"></canvas><!--连线画布-->
+            <canvas class="backcanvas"></canvas><!--提示线画布-->
+        </div>
+
+        <!-- put in order -->
+        <div class="question_content col-6 alignC" ng-if='mission.typeId == 3'>
+            please pair up
+            <div class="question_item row">
+                <div class="col-{{mission.content.length-1}}" ng-repeat="item in mission.content">{{item}}</div>
+                <div class="bottomLine"></div>
+            </div>
+        </div>
+        <!-- mulitpleChoice  && q&a-->
+        <div class="question_content col-6 alignC" ng-if='mission.typeId == 4'>
+            please shot the answer
+            <div class="question_item">
+                <div class="">{{mission.content}}</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="answer_area alignC">
+        <!-- 纯数字 -->
+        <div>
+
+        </div>
+
+        <div class="choice_slot row" ng-if='mission.typeId == 0'>
+            <div class="ib col-1" ng-repeat="item in getNumber(10) track by $index" ng-click="selectNum($index)">
+                {{$index}}
+            </div>
+        </div>
+
+        <div class="nextFoucs ib pointer" ng-click="nextFocus()">下一空
+        </div>
+        <div class="nextMission ib pointer" ng-click="nextMission($index)">下一大题</div>
+
+        <!-- multiple choice -->
+        <div class="choice_slot row" ng-if="mission.typeId==4">
+            <div class="alignC col-{{mission.choices.length}}" ng-repeat="choice in mission.choices">
+                <span class="icon-tabs ib">
+                    <i class="ib">{{choice}}</i>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="missionDone" ng-controller="MissionDoneController" ng-show="finishFlag">
+
+    <div class="bg windowsOutline">
+        <div class="title">Congratulations{{passFlag}}</div>
+        <div class="valid-content flex-v-list placeC">
+            <div class="row" ng-repeat='item in finalResult'>
+                <div class="col-7 alignL">
+                    <i class="icon_final_$index"></i>{{item.key}}</div>
+                <div class="col-3 alignR points">{{item.value}}</div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <i class="icon-home ib" ng-click="gotoPage('chapter')">home</i>
+                </div>
+                <div class="col-5">
+                    <i class="icon-user ib" ng-click="gotoPage('user')">user</i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

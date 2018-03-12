@@ -6,13 +6,6 @@ angular.module('chapter', ['ngRoute'])
   // controller
   .controller('ChapterController', function ($scope, $rootScope, $location,$http) {
       
-    $scope.gotoPage = function (page,args) {
-
-      $location.path('/' + page+'/'+args);
-      if(args){
-        console.log('clicked',args);
-      }
-    }
   
       console.log('init page')
 
@@ -27,6 +20,12 @@ angular.module('chapter', ['ngRoute'])
       }, function (response) {
         // 请求失败执行代码
       });
+
+      $rootScope.gotoPage = function (page,args) {
+        var redirect = '/' + page;
+        redirect += args? ('/'+args):'';
+        $location.path(redirect);
+      }
 
 
     
