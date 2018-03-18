@@ -38,7 +38,7 @@
             <div class="flipper">
                 <div class="front">
                     <!-- front content -->
-                    <div class="validContent" ng-click="gotoPage('missionList',chapter.exerciseId)">
+                    <div class="validContent" ng-click="enter($index,chapter.exerciseId)">
                         <p class="title">{{chapter.title}}</p>
                         <p class="countDown">{{chapter.timelimit}}</p>
                         <p class="">{{chapter.timeLength}}</p>
@@ -46,9 +46,9 @@
                 </div>
                 <div class="back">
                     <!-- back content ranks-->
-                    <div class="validContent" ng-click="gotoPage('missionList',chapter.exerciseId)">
-                    <p class="">{{chapter.createdAt}}</p>
-                    <p class="">{{chapter.createdBy}}</p>
+                    <div class="validContent" ng-click="enter($index,chapter.exerciseId)">
+                        <p class="">{{chapter.createdAt}}</p>
+                        <p class="">{{chapter.createdBy}}</p>
                     </div>
                 </div>
             </div>
@@ -62,5 +62,40 @@
         <i class="ib icon-user" ng-click="gotoPage('user')"></i>
         <p></p>
     </div>
+    <div class="leaderboard-cover" ng-controller="LeaderboardController" ng-show="show">
+        <div class="leaderboard">
+                <div class="abs factor-group">
+                        <p class="factor">Time</p>
+                        <p class="factor">Improve</p>
+                    </div>
+                <h2 class="leadheader">Leaderboard<i class="floatR pointer" ng-click="show=!show">x</i></h2>
 
-</div>
+                <div class="row colheader">
+                    <div class="col-2">
+                        <h4>#</h4>
+                    </div>
+                    <div class="col-6">
+                        <h4>Name</h4>
+                    </div>
+                    <div class="col-3 rewards">
+                        <h4 ng-click="onClickearn">Rewards</h4>
+                    </div>
+        
+                </div>
+                <div class="row users" ng-repeat="item in ranks">
+                    <div class="col-2 rank">
+                        <h4>{{$index}}</h4>
+                    </div>
+                    <div class="col-6 name row">
+                        <img class="" ng-src='./img/user/{{item.name}}.png'/>
+                        <span class="col-6">{{item.name}}</span>
+                    </div>
+                    <div class="col-3">
+                        <h4>{{item.points}}</h4>
+                    </div>
+        
+                </div>
+        </div>
+        
+
+    </div>

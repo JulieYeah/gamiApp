@@ -135,21 +135,128 @@ input, select {
   flex-direction: column;
   justify-content: space-around; }
 
-.brackets {
+.bottomLine {
+  border: 1px solid #fff; }
+
+.brackets_text {
   display: flex;
   align-items: center; }
-  .brackets::before {
+  .brackets_text::before {
     content: '[';
     color: #ffb1bb;
     font-size: 20px;
     text-align: right;
     padding-right: 10px; }
-  .brackets::after {
+  .brackets_text::after {
     content: ']';
     color: #ffb3bd;
     font-size: 20px;
     text-align: left;
     padding-left: 10px; }
+
+.round-border {
+  border: 1px solid wheat;
+  border-radius: 10px;
+  padding: 5px; }
+
+.brackets {
+  background: url(../img/mission_select_frame.png) no-repeat;
+  /* width: 100px; */
+  padding: 10px;
+  background-size: contain;
+  background-position-x: 50%; }
+
+[class*='final-icon-'] {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background-image: url(../img/icons_sprite.png);
+  background-repeat: no-repeat; }
+
+.final-icon-rightTriangle {
+  background-position: 0px; }
+
+.final-icon-setting {
+  background-position: -20px; }
+
+.final-icon-circles {
+  background-position: -40px; }
+
+.final-icon-leftTriangle {
+  background-position: -60px; }
+
+.final-icon-add {
+  background-position: -80px; }
+
+.gicon-start {
+  background: url(../img/buttons.png) no-repeat;
+  background-position: 20px 0;
+  vertical-align: center;
+  width: 120px;
+  height: 100px;
+  right: 20%;
+  bottom: 10%; }
+  .gicon-start i {
+    display: inline-block;
+    background: url(../img/icons_on_Buttons.png) no-repeat;
+    background-position: 0 10px;
+    width: 80%;
+    height: 100%;
+    back: 0,0;
+    margin: -10px 20px; }
+
+.gicon-pause {
+  background: url(../img/buttons.png);
+  background-position: 390px 0;
+  vertical-align: center;
+  background-origin: 0 0;
+  width: 100px;
+  height: 100px; }
+  .gicon-pause i {
+    background-position: right 400px;
+    width: 100px;
+    height: 100px;
+    background: url(../img/icons_on_Buttons.png); }
+
+.gicon {
+  background: url(../img/buttons.png);
+  background-position: 0px 0;
+  vertical-align: center;
+  background-origin: 0 0;
+  width: 100px;
+  height: 100px; }
+  .gicon.next {
+    right: 25%;
+    top: 40%; }
+    .gicon.next i {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background: url(../img/icons_on_Buttons.png) no-repeat;
+      background-position: right center; }
+  .gicon.go {
+    z-index: 99;
+    right: 20%; }
+    .gicon.go i {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background: url(../img/icons_on_Buttons.png) no-repeat;
+      background-position: 0 76%; }
+  .gicon.back {
+    background-position: 390px 0;
+    left: 15%;
+    bottom: 10%; }
+    .gicon.back i {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background: url(../img/icons_on_Buttons.png) no-repeat;
+      background-position: left; }
+
+.nextMission {
+  z-index: 99; }
 
 .content {
   height: 100%;
@@ -253,6 +360,11 @@ input, select {
     font-size: 24px;
     font-size: 1.5rem; }
 
+.mission h2.missionNum {
+  font-size: 30px;
+  font-size: 1.875rem;
+  padding: 40px;
+  line-height: 40px; }
 .mission .qustion_area {
   margin: 5% auto 4% auto;
   width: 100%; }
@@ -260,136 +372,115 @@ input, select {
     vertical-align: top;
     height: max-content; }
   .mission .qustion_area .teacher_icon_0 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_0.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_0.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_1 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_1.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_1.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_2 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_2.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_2.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_3 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_3.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_3.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_4 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_4.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_4.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_5 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_5.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_5.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_6 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_6.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_6.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_7 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_7.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_7.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_8 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_8.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_8.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_9 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_9.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_9.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_10 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_10.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_10.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_11 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_11.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_11.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_12 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_12.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_12.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_13 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_13.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_13.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_14 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_14.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_14.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_15 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_15.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_15.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_16 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_16.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_16.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_17 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_17.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_17.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_18 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_18.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_18.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_19 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_19.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_19.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
   .mission .qustion_area .teacher_icon_20 i {
-    width: 700px;
-    height: 800px;
-    transform: scale(0.3);
-    transform-origin: 0 0;
-    background: url(../img/teacher/teacher_20.png) no-repeat; }
+    width: 200px;
+    background: url(../img/teacher/teacher_20.png) no-repeat;
+    height: 200px;
+    background-size: contain; }
 .mission .question_content {
   background: url(../img/border.png) no-repeat;
-  width: 783px;
   height: 354px;
-  padding-top: 5%; }
+  padding-top: 4%;
+  background-size: contain; }
   .mission .question_content .question_item {
     line-height: 50px;
     margin-left: 10%;
@@ -399,6 +490,9 @@ input, select {
   margin: 0 auto; }
   .mission .answer_area .choice_slot {
     cursor: pointer; }
+    .mission .answer_area .choice_slot .pureNum {
+      font-size: 30px;
+      font-size: 1.875rem; }
 
 .missionList {
   height: 100%; }
@@ -410,21 +504,36 @@ input, select {
       font-size: 34px;
       font-size: 2.125rem; }
     .missionList .missionlistContainer .missionNum {
-      margin: 20px; }
+      margin: 20px;
+      font-size: 32px;
+      font-size: 2rem; }
     .missionList .missionlistContainer .row {
       text-align: justify; }
       .missionList .missionlistContainer .row [class*="col-"] {
         cursor: pointer;
-        border: 1px solid #fff;
         margin: 20px;
         text-align: center; }
 
-.leaderboard {
-  width: 50%;
-  position: absolute;
-  left: 25%;
-  right: 25%;
-  top: 25%; }
+.leaderboard-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+  .leaderboard-cover .leaderboard {
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    background: white;
+    color: black; }
+    .leaderboard-cover .leaderboard .factor-group {
+      background: gray;
+      width: 100px;
+      transform: translateX(-100px); }
+      .leaderboard-cover .leaderboard .factor-group p {
+        padding: 10px; }
 
 .leadheader {
   width: 100%;
@@ -435,6 +544,8 @@ input, select {
   margin: 0;
   padding-top: 20px;
   padding: 10px 0; }
+  .leadheader i {
+    padding-right: 20px; }
 
 .colheader {
   width: 100%;
@@ -482,7 +593,8 @@ input, select {
   .users img {
     width: 40px;
     height: 40px;
-    border-radius: 50%; }
+    border-radius: 50%;
+    vertical-align: middle; }
   .users .rank {
     padding-left: 6px; }
   .users:last-child {
@@ -503,7 +615,7 @@ input, select {
     margin: 0 auto; }
   .missionDone .valid-content {
     height: 50%;
-    width: 80%;
+    width: 60%;
     font-size: 19px;
     font-size: 1.1875rem;
     padding: 40px 0 0 0; }
@@ -515,7 +627,7 @@ input, select {
   background: url(../img/window.png) top center no-repeat;
   width: 60%;
   z-index: 2;
-  height: 100%;
+  height: 80%;
   background-size: contain; }
   .windowsOutline .title {
     font-size: 28px;
@@ -523,7 +635,78 @@ input, select {
     text-align: center;
     padding: 7% 0 4% 0;
     line-height: 90px; }
+  .windowsOutline .points {
+    font-size: 24px;
+    font-size: 1.5rem;
+    color: #01ffff; }
 
+.drag-content {
+  min-height: 20%;
+  display: flex;
+  flex-direction: initial;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center; }
+
+.dragboxs {
+  height: 40%;
+  display: flex;
+  justify-content: center; }
+  .dragboxs .dragbox {
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    margin: 0 20px;
+    height: 100%;
+    padding: 50px 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    vertical-align: text-bottom; }
+    .dragboxs .dragbox span {
+      position: absolute;
+      font-size: 50px;
+      z-index: -1;
+      bottom: 0;
+      right: 10px; }
+    .dragboxs .dragbox i {
+      margin: 0 5px; }
+
+.timer {
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  text-align: center;
+  color: #daf6ff;
+  text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0); }
+  .timer .time {
+    letter-spacing: 0.05em;
+    font-size: 50px;
+    padding: 5px 0; }
+  .timer .date {
+    letter-spacing: 0.1em;
+    font-size: 24px; }
+  .timer .text {
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    padding: 20px 0 0; }
+
+.Blazing {
+  color: #ff7300;
+  outline: none;
+  vertical-align: middle;
+  text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 4px -5px 6px yellow, -4px -10px 10px yellow, 0 -10px 30px yellow;
+  animation: 2s Blazing infinite alternate linear; }
+
+@keyframes Blazing {
+  0% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow, 0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow; }
+  25% {
+    text-shadow: 0 3px 20px red, 0 0 30px red, 0 0 20px orange, 0 0 5px yellow, -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow; }
+  50% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange, -2px -5px 5px yellow, 3px -10px 10px yellow, -4px -15px 20px yellow, 2px -20px 30px rgba(255, 255, 0, 0.5); }
+  75% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 -5px 10px orange, 3px -5px 5px yellow, -4px -10px 10px yellow, 2px -20px 30px rgba(255, 255, 0, 0.5), 0px -25px 40px rgba(255, 255, 0, 0); }
+  100% {
+    text-shadow: 0 3px 20px red, 0 0 20px red, 0 0 10px orange, 0 0 0 yellow, 0 0 5px yellow, -2px -5px 5px yellow, 4px -10px 10px yellow; } }
 #match .show span.addstyle {
   background: #F96; }
 #match .showLeft {

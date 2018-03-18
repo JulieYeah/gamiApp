@@ -2,6 +2,8 @@
 @import "mixin.scss";
 @import "grid.scss";
 @import "shapes.scss";
+@import "icon.scss";
+@import "button.scss";
 
 .content{
     height: 100%;
@@ -132,6 +134,11 @@
     // justify-content: center;
 }
 .mission{
+    h2.missionNum{
+        @include font-size(30px);
+        padding: 40px;
+        line-height: 40px;
+    }
     .qustion_area{
        
         margin: 5% auto 4% auto;
@@ -143,11 +150,10 @@
         @for $i from 0 through 20{
             .teacher_icon_#{$i}{
                 i{
-                    width: 700px;
-                    height: 800px;
-                    transform: scale(.3);
-                    transform-origin: 0 0;
+                    width: 200px;
                     background: url(../img/teacher/teacher_#{$i}.png) no-repeat;
+                    height: 200px;
+                    background-size: contain;
                 }
             }
         }
@@ -156,9 +162,9 @@
     .question_content{
         //top:5%;//calculation required
         background: url(../img/border.png) no-repeat;
-        width: 783px;
         height: 354px;//if height is over acceptable..
-        padding-top: 5%;
+        padding-top: 4%;
+        background-size: contain;
         .question_item{
             line-height: 50px;
             margin-left: 10%;
@@ -171,6 +177,9 @@
         margin: 0 auto;
         .choice_slot{
             cursor: pointer;
+            .pureNum{
+                @include font-size(30px);
+            }
         }
     }
 }
@@ -188,12 +197,12 @@
         }
         .missionNum{
             margin: 20px;
-        }
+            @include font-size(32px);
+                }
         .row{
             text-align:justify;
             [class*="col-"]{
                 cursor: pointer;
-                border: 1px solid #fff;
                 margin: 20px;
                 text-align: center
             }
@@ -203,12 +212,30 @@
 }
 
 // leaderboard
-.leaderboard{
+.leaderboard-cover{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .leaderboard{
     width: 50%;
     position: absolute;
     left: 25%;
     right: 25%;
     top: 25%;
+    background: white;
+    color: black;
+    .factor-group{
+        background: gray;
+        width: 100px;
+        transform: translateX(-100px);
+        p{
+            padding:10px;
+        }
+    }
+    }
+    
 }
 .leadheader {
     width: 100%;
@@ -219,6 +246,9 @@
     margin: 0;
     padding-top: 20px;
     padding: 10px 0;
+    i{
+        padding-right: 20px;
+    }
 }
   
   .colheader {
@@ -276,6 +306,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    vertical-align: middle;
     //border: 2px solid rgba(0, 168, 232, 0.79);
    // margin-right: 10px;
   }
@@ -314,7 +345,7 @@
 
     .valid-content{
         height: 50%;
-        width: 80%;
+        width: 60%;
         @include font-size(19px);
         padding: 40px 0 0 0;
     }
@@ -328,7 +359,7 @@
     background: url(../img/window.png) top center no-repeat;
     width: 60%;
     z-index: 2;
-    height: 100%;
+    height: 80%;
     background-size: contain;
     .title{
         @include font-size(28px);
@@ -336,6 +367,121 @@
         padding: 7% 0 4% 0;
         line-height: 90px;
     }
+    .points{
+        @include font-size(24px);
+        color: #01ffff;
+    }
 
 }
  
+
+// drag and drop
+
+.drag-content{
+    min-height:20%;
+    display: flex;
+    flex-direction:initial;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dragboxs{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    
+    .dragbox{
+        border: 1px solid #fff;
+        box-sizing: border-box;
+        margin:0 20px;
+        height: 100%;
+        padding: 50px 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        vertical-align: text-bottom;
+        span{
+            position: absolute;
+            font-size: 50px;
+            z-index: -1;
+            bottom: 0;
+            right: 10px;
+        }
+        i{
+            margin: 0 5px;
+        }
+    }
+}
+
+// timer
+
+.timer {
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    text-align: center;
+    color: #daf6ff;
+    text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+    .time {
+        letter-spacing: 0.05em;
+        font-size: 50px;
+        padding: 5px 0;
+    }
+    .date {
+        letter-spacing: 0.1em;
+        font-size: 24px;
+    }
+    .text {
+        letter-spacing: 0.1em;
+        font-size: 12px;
+        padding: 20px 0 0;
+    }
+}
+
+.Blazing {
+
+    color: rgb(255, 115, 0);
+	outline: none;
+	vertical-align: middle; 
+	text-shadow:
+        0 3px 20px red,
+        0 0 20px red,
+		0 0 10px orange,
+		4px -5px 6px yellow,
+		-4px -10px 10px yellow,
+		0 -10px 30px yellow;
+	animation: 2s Blazing infinite alternate linear;
+}
+
+@keyframes Blazing {
+	0%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 0 10px orange,
+		0 0 0 yellow,
+		0 0 5px yellow,
+		-2px -5px 5px yellow,
+		4px -10px 10px yellow; }
+	25%   { text-shadow: 0 3px 20px red, 0 0 30px red,
+		0 0 20px orange,
+		0 0 5px yellow,
+		-2px -5px 5px yellow,
+		3px -10px 10px yellow,
+		-4px -15px 20px yellow; }
+	50%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 -5px 10px orange,
+		-2px -5px 5px yellow,
+		3px -10px 10px yellow,
+		-4px -15px 20px yellow,
+		2px -20px 30px rgba(255,255,0,0.5); }
+	75%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 -5px 10px orange,
+		3px -5px 5px yellow,
+		-4px -10px 10px yellow,
+		2px -20px 30px rgba(255,255,0,0.5),
+		0px -25px 40px rgba(255,255,0,0)}
+	100%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+		0 0 10px orange,
+		0 0 0 yellow,
+		0 0 5px yellow,
+		-2px -5px 5px yellow,
+		4px -10px 10px yellow; }
+}

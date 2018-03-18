@@ -1,4 +1,8 @@
-<div class="leaderboard" ng-controller="ChapterController">
+<div class="leaderboard" >
+    <div class="abs factor-group">
+        <p class="factor">Time</p>
+        <p class="factor">Improvement</p>
+    </div>
     <h2 class="leadheader">Leaderboard</h2>
     
     <div class="row colheader">
@@ -15,14 +19,14 @@
     </div>
     <div class="row users">
         <div class="col-2 rank">
-            <h4>{ rank }</h4>
+            <h4>{{ rank }}</h4>
         </div>
         <div class="col-6 name">
-            <img src={ img } alt='avatar' />username 
+            <img src='img/user/{{img}}.png' alt='avatar' />username 
             <!-- <a href={`https://www.freecodecamp.com/${username}`} target="_blank">{ username }</a> -->
         </div>
         <div class="col-3">
-            <h4>{ recent }</h4>
+            <h4>{(recent}}</h4>
         </div>
         
     </div>

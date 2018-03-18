@@ -9,6 +9,13 @@ angular.module('chapter', ['ngRoute'])
   
       console.log('init page')
 
+
+      $rootScope.gotoPage = function (page,args) {
+        var redirect = '/' + page;
+        redirect += args? ('/'+args):'';
+        $location.path(redirect);
+      }
+
       $http({
         method: 'GET',
         url: './chapter/chapters.json',
@@ -20,12 +27,20 @@ angular.module('chapter', ['ngRoute'])
       }, function (response) {
         // 请求失败执行代码
       });
-
-      $rootScope.gotoPage = function (page,args) {
-        var redirect = '/' + page;
-        redirect += args? ('/'+args):'';
-        $location.path(redirect);
+  
+      $scope.enter= function(index,eId){
+        console.log("..emitting")
+        if($scope.chapters[index].finishFlag){
+          $scope.$broadcast('getRank',$scope.chapters[index].exerciseId)
+        }else{
+         $rootScope.gotoPage('missionList',eId)
       }
+    }
+
+
+    
+
+
 
 
     

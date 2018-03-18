@@ -3,11 +3,14 @@
     <div class="missionlistContainer windowsOutline placeC">
         <h1 class="title">Mission Board</h1>
     <div class="row alignC">
-        <div class="col-{{missionList.length}}" ng-repeat="item in missionList" ng-click="gotoPage('mission')">
-            <span class="brackets">
+        <div class="col-{{missionList.length}}" ng-repeat="item in missionList">
+            <div class="brackets">
                 <i class="missionNum ib">{{$index+1}}</i><br>{{item.type}}
             </span>
         </div>
     </div>
     </div>
+
+    <div class="gicon back abs" ng-click="gotoPage('chapter')"><i></i></div>
+    <div class="gicon-start abs" ng-click="gotoPage('mission')"><i></i></div>
 </div>

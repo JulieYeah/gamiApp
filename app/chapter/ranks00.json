@@ -1,0 +1,32 @@
+
+[
+    {
+        "name":"abra",
+        "time":"true",
+        "points":"600"
+    },
+    {
+        "name":"bullbasaur",
+        "time":"true",
+        "points":"600"
+    }, 
+    {
+        "name":"charmander",
+        "time":"true",
+        "points":"600"
+    },
+    {
+        "name":"jigglypuff",
+        "time":"true",
+        "points":"600"
+    },{
+        "name":"mankey",
+        "time":"true",
+        "points":"600"
+    },{
+        "name":"pikachu",
+        "time":"true",
+        "points":"600"
+    }
+]
+

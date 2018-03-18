@@ -1,34 +1,76 @@
 {
-"exerciseId":"00",
-"title":"test",
-"timelimit":"true",
-"timeLength":"600",
-"missions":[
-{
-"typeId":"0",
-"content":["1+1","2-0","2*2+4*4"],
-"answer":["2","2","20"],
-"missionId":"101"
-},
-{
-"typeId":"1",
-"content":["bed","egg","book"],
-"choices":["a","an","/"],
-"answer":["a","an","a"],
-"missionId":"102"
-},
-{
-"typeId":"3",
-"content":["我","是","爸爸","小明"],
-"answer":["我是小明爸爸"],
-"missionId":"103"
-},
-{
-"typeId":"4",
-"content":"叶小明姓什么？",
-"choices":["刘","王","叶"],
-"answer":"叶",
-"missionId":"104"
-}
-]
+    "exerciseId": "00",
+    "title": "test",
+    "timelimit": "true",
+    "timeLength": "600",
+    "missions": [
+        {
+            "typeId": "0",
+            "content": [
+                "1+1",
+                "2-0",
+                "2*2+4*4"
+            ],
+            "answer": [
+                "2",
+                "2",
+                "20"
+            ],
+            "missionId": "101"
+        },
+        {
+            "typeId": "1",
+            "content": [
+                "bed",
+                "egg",
+                "book"
+            ],
+            "choices": [
+                "a",
+                "an",
+                "/"
+            ],
+            "answer": [
+                "a",
+                "an",
+                "a"
+            ],
+            "missionId": "102"
+        },
+        {
+            "typeId": "3",
+            "content": [
+                "我",
+                "是",
+                "爸爸",
+                "小明"
+            ],
+            "answer": [
+                "我是小明爸爸"
+            ],
+            "missionId": "103"
+        },
+        {
+            "typeId": "4",
+            "content": "叶小明姓什么？",
+            "choices": [
+                "刘",
+                "王",
+                "叶"
+            ],
+            "answer": "叶",
+            "missionId": "104"
+        },
+        {
+            "typeId": "5",
+            "content": [" 大于1","小于1"],
+            "choices": [
+                "4/5",
+                "7/8",
+                "8/7"
+            ],
+            "answer":["1","1","0"],
+            "missionId": "105"
+        }
+    ]
 }

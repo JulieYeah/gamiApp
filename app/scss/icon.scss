@@ -44,3 +44,87 @@ $icon-list: (
         @include icon($row, $column);
     }
 }
+
+.gicon-start{
+    background: url(../img/buttons.png) no-repeat;
+    background-position: 20px 0;
+    vertical-align: center;
+    width: 120px;
+    height: 100px;
+    right: 20%;
+    bottom: 10%;
+    i{
+        display: inline-block;
+        background: url(../img/icons_on_Buttons.png) no-repeat;
+        background-position: 0 10px;
+        width: 80%;
+        height: 100%;
+        back: 0,0;
+        margin: -10px 20px;
+
+    }
+}
+.gicon-pause{
+    background: url(../img/buttons.png);
+    background-position: 390px 0;
+    vertical-align: center;
+    background-origin: 0 0;
+    width: 100px;
+    height: 100px;
+    i{
+        background-position: right 400px;
+        width: 100px;
+        height: 100px;
+        background: url(../img/icons_on_Buttons.png);
+
+    }
+}
+
+.gicon{
+    background: url(../img/buttons.png);
+    background-position: 0px 0;
+    vertical-align: center;
+    background-origin: 0 0;
+    width: 100px;
+    height: 100px;
+    
+    &.next{
+        right: 25%;
+        top: 40%;
+        
+        i{
+            display:inline-block;
+            width: 100px;
+            height: 100px;
+            background: url(../img/icons_on_Buttons.png) no-repeat;
+            background-position: right center;
+            
+        }
+    }
+    &.go{
+        z-index: 99;
+        right: 20%;
+        i{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: url(../img/icons_on_Buttons.png) no-repeat;
+            background-position: 0 76%;    
+        }
+    }
+
+    &.back{
+        background-position:390px 0;
+        left: 15%;
+        bottom: 10%;
+        i{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background:url(../img/icons_on_Buttons.png) no-repeat;
+            background-position: left;
+        }
+
+    }
+
+}
