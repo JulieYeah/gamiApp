@@ -1,6 +1,7 @@
 <div class="mission" ng-repeat="mission in missionList" ng-show="!finishFlag" ng-if="$index==sequenceIndex">
-    <div class="ib timer">
-        <p class="time" ng-bind="time"></p>
+    <div class="abs timer">
+        <span class="ib percentage">{{percentage}}<i>%</i></span>
+        <span class="ib time" ng-bind="time"></span>
     </div>
     <i class="ib floatR icon-quit" ng-click="quit()"></i>
     <h2 class="alignC missionNum">Mission{{$index+1}}</h2>
@@ -14,10 +15,10 @@
         <!-- fill-in-blank -->
         <div class="question_content col-6 alignC" ng-if='mission.typeId == 0'>
             <div class="question_item row" ng-repeat="item in mission.content">
-                <div class="col-6">{{item}}</div>
-                <div class="col-5">
-                    <div class="input"></div>
-                    <input type="text" ng-model="userAnswer[$index]" class="hiddenInput">
+                <div class="col-6 letter-space">{{item}} =</div>
+                <div class="col-5 letter-space">
+                    <div class="input"  ng-class="{'isFocus':$index-1 == mcInput}" >{{userAnswer[$index]}}</div>
+                    <input type="text" ng-model="userAnswer[$index]" class="original_input">
                 </div>
             </div>
             <div class="abs gicon next ib pointer" ng-click="nextFocus()"><i></i>
@@ -38,11 +39,11 @@
         <div class="question_content col-6 alignC rel demo" id="match" ng-if='mission.typeId == 1'>
             <div class="question_item row show">
                 <div class="col-6 showLeft">
-                    <span class="showItem leftItem" top='0' ng-class="{'addstyle':$index==mcMatch}" id="leftItem{{$index}}" ng-repeat="item in mission.content" ng-click="drawLine($index)">{{item}}</br>
+                    <span class="showItem leftItem pointer" top='0' ng-class="{'addstyle':$index==mcMatch}" id="leftItem{{$index}}" ng-repeat="item in mission.content" ng-click="drawLine($index)">{{item}}</br>
                     </span>
                 </div>
                 <div class="col-5 showRight">
-                    <span clss="showItem rightItem" id="rightItem{{$index}}" ng-repeat="item in mission.content" ng-click="drawLineend($index)">{{mission.choices[$index]}}</br>
+                    <span clss="showItem rightItem pointer" id="rightItem{{$index}}" ng-repeat="item in mission.content" ng-click="drawLineend(mission.choices[$index],$index)">{{mission.choices[$index]}}</br>
                     </span>
                     </br>
                 </div>
@@ -58,7 +59,7 @@
         <div class="question_content col-6 alignC" ng-if='mission.typeId == 3'>
             please put in order
             <div class="question_item row">
-                <div class="col-{{mission.content.length-1}}" ng-repeat="item in mission.content" ng-click='putOrder($index)'>{{item}}</div>
+                <div class="col-{{mission.content.length-1}} pointer" ng-repeat="item in mission.content" ng-click='putOrder($index)'>{{item}}</div>
                 <div class="bottomLine" ng-bind="inOrder">{{inOrder}}</div>
             </div>
             <div ng-click='clearOrder()'>restart</div>
@@ -72,13 +73,13 @@
             </div>
             <!-- multiple choice -->
             <div class="choice_slot row"  ng-if="mission.typeId==4">
-                <canvas id="multiC"></canvas>
                 <div class="alignC col-{{mission.choices.length}}" ng-repeat="choice in mission.choices">
                     <span class="icon-tabs ib" id='tabs{{$index}}'>
                         <i class="ib" ng-class="{'Blazing':$index==mcAnswer}">{{choice}}</i>
                     </span>
                 </div>
             </div>
+            <canvas id="multiC"></canvas>
         </div>
 
         <!-- catergorize -->
@@ -109,8 +110,8 @@
     <div class="answer_area alignC">
         <!-- 纯数字 -->
 
-        <div class="choice_slot row" ng-if='mission.typeId == 0'>
-            <div class="ib col-1 pureNum" ng-repeat="item in getNumber(10) track by $index" ng-click="selectNum($index)">
+        <div class="choice_slot flex" ng-if='mission.typeId == 0'>
+            <div class="ib pureNum" ng-repeat="item in getNumber(10) track by $index" ng-click="selectNum($index)">
                 {{$index}}
             </div>
         </div>

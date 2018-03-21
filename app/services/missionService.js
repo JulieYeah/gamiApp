@@ -28,6 +28,10 @@
                 break
                 case 4 :
                 element.type = '问答题'
+                break
+                case 5 :
+                element.type = '归类题'
+                break
                 default:
                 element.type = '其他'
                 console.log(element);

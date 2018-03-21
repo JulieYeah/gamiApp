@@ -99,17 +99,19 @@
   });
 
   app.directive('dragstart',function(){
-    
+
   })
   
   app.controller('DragDropCtrl', function($scope) {
-    console.log('..')
+    console.log($scope.userAnswer)
     $scope.handleDrop = function(item, bin) {
      // alert('Item ' + item + ' has been dropped into ' + bin);
     //  final Situation
+    $scope.classAnswer[item.slice(-1)*1] = bin.slice(-1);
     }
     $scope.restart = function(){
   //not found a good way   
     console.log('wanna rsetart',$scope.mission.choices)
+    $scope.classAnswer=[]
     }
   });

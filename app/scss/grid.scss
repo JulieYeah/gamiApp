@@ -15,6 +15,12 @@
     flex-direction: column;
     justify-content: space-around;
 }
+.flex-v-c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 .bottomLine{
     border: 1px solid #fff;

@@ -3,9 +3,11 @@
     "title": "test",
     "timelimit": "true",
     "timeLength": "600",
+    "coins":"200",
     "missions": [
         {
             "typeId": "0",
+            "value":"60",
             "content": [
                 "1+1",
                 "2-0",
@@ -20,6 +22,7 @@
         },
         {
             "typeId": "1",
+            "value":"30",
             "content": [
                 "bed",
                 "egg",
@@ -39,6 +42,7 @@
         },
         {
             "typeId": "3",
+            "value":"20",
             "content": [
                 "我",
                 "是",
@@ -53,16 +57,18 @@
         {
             "typeId": "4",
             "content": "叶小明姓什么？",
+            "value":"10",
             "choices": [
                 "刘",
                 "王",
                 "叶"
             ],
-            "answer": "叶",
+            "answer": ["叶"],
             "missionId": "104"
         },
         {
             "typeId": "5",
+            "value":"15",
             "content": [" 大于1","小于1"],
             "choices": [
                 "4/5",

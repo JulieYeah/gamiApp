@@ -7,7 +7,8 @@
         "timeLength":"600",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
-        "finishFlag":false
+        "finishFlag":false,
+        "coins":"200"
     },
     {
         "exerciseId":"01",
@@ -16,25 +17,28 @@
         "timeLength":"600",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
-        "finishFlag":true
+        "finishFlag":true,
+        "coins":"400"
     }, 
     {
         "exerciseId":"02",
-        "title":"test",
+        "title":"迷雾森林",
         "timelimit":"true",
         "timeLength":"600",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
-        "finishFlag":false
+        "finishFlag":false,
+        "coins":"600"
     },
     {
         "exerciseId":"03",
-        "title":"test",
+        "title":"王后雄",
         "timelimit":"true",
         "timeLength":"600",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
-        "finishFlag":false
+        "finishFlag":false,
+        "coins":"100"
     }
 ]
 

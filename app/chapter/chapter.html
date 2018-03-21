@@ -38,17 +38,16 @@
             <div class="flipper">
                 <div class="front">
                     <!-- front content -->
-                    <div class="validContent" ng-click="enter($index,chapter.exerciseId)">
+                    <div class="validContent flex-v-c" ng-click="enter($index,chapter.exerciseId)">
                         <p class="title">{{chapter.title}}</p>
-                        <p class="countDown">{{chapter.timelimit}}</p>
-                        <p class="">{{chapter.timeLength}}</p>
                     </div>
                 </div>
                 <div class="back">
                     <!-- back content ranks-->
-                    <div class="validContent" ng-click="enter($index,chapter.exerciseId)">
-                        <p class="">{{chapter.createdAt}}</p>
-                        <p class="">{{chapter.createdBy}}</p>
+                    <div class="validContent flex-v-c" ng-click="enter($index,chapter.exerciseId)">
+                        <p class=""><i>coins:</i> {{chapter.coins}}</p>
+                        <p class=""><i>time:</i> {{chapter.timeLength}}</p>
+                        <p>some notes</p>
                     </div>
                 </div>
             </div>

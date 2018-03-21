@@ -6,9 +6,9 @@ angular.module('missionDetail', ['ngRoute'])
   // controller
   .controller('MissionDetailController', function ($routeParams, $scope, $rootScope, $location, $http, missionService, msgBus, $interval) {
 
-    var currentMission, currentQuestion = 0;
-    // mission的顺序
-    $scope.sequenceIndex = 0;
+    var currentMission, currentQuestion = 0, currentfinalAnswer, finalAnswer = [],timeLeft;
+    // mission的顺序,完成情况
+    $scope.sequenceIndex = 0; $scope.percentage = 0;
     // defulat finishing flag
     $scope.flagFinish = false;
     // choice symbol
@@ -19,10 +19,13 @@ angular.module('missionDetail', ['ngRoute'])
     $scope.mcAnswer = -1;
     //init mcMatch
     $scope.mcMatch = -1;
+    //init input
+    $scope.mcInput = -1;
+    $scope.classAnswer = [];
 
     $scope.missionList = $rootScope.missionInfo.missions;
     initAnswerBox()
-    //initTimer()
+    initTimer()
 
     function initTimer() {
       var timerID = $interval(updateTime, 1000);
@@ -31,9 +34,10 @@ angular.module('missionDetail', ['ngRoute'])
 
       function updateTime() {
         var cd = timeLength * 1 - countTimes;
+        timeLeft = cd;
         $scope.time = zeroPadding(Math.floor(cd / 3600), 2) + ':' + zeroPadding(Math.floor(cd % 3600 / 60), 2) + ':' + zeroPadding((cd % 3600 % 60), 2);
         countTimes++;
-        if (timeLength == 0) {
+        if (timeLength <= 0) {
           clearInterval(timerID)
           missionFinish()
 
@@ -48,7 +52,7 @@ angular.module('missionDetail', ['ngRoute'])
         return (zero + num).slice(-digit);
       }
     }
-
+    //init Input
     function initAnswerBox() {
       currentMission = $scope.missionList;
       var answerlength = currentMission[$scope.sequenceIndex].content.length;
@@ -57,7 +61,7 @@ angular.module('missionDetail', ['ngRoute'])
       for (var i in userAnswer) {
         userAnswer[i].push('')
       }
-      console.log(userAnswer)
+
       $scope.userAnswer = userAnswer;
 
     }
@@ -71,21 +75,26 @@ angular.module('missionDetail', ['ngRoute'])
 
       $scope.userAnswer[currentQuestion] = $scope.userAnswer[currentQuestion] || ''
       $scope.userAnswer[currentQuestion] += num;
+      currentfinalAnswer = $scope.userAnswer
 
     }
     // next mission
-    var matchNum = 0;
+    var matchNum = 0, countAnswer = []
     $scope.nextMission = function () {
 
       // save the answer
+      if (currentMission[$scope.sequenceIndex].typeId == 5) {
+        currentfinalAnswer = $scope.classAnswer;
+      }
 
-      //clear the answer
-      $scope.userAnswer = []
+      finalAnswer[$scope.sequenceIndex] = currentfinalAnswer;
+      console.log(finalAnswer, 'answer..')
 
       if (currentMission.length - 1 == $scope.sequenceIndex) {
         missionFinish()
         $scope.sequenceIndex = -1;
       } else {
+        $scope.percentage = Math.floor(($scope.sequenceIndex+1) * 100 / currentMission.length)
         $scope.sequenceIndex++;
         let cMission = currentMission[$scope.sequenceIndex];
         //dispatch next mission type
@@ -98,24 +107,36 @@ angular.module('missionDetail', ['ngRoute'])
           setTimeout(function () {
             initMultiChocie()
           }, 500);
-  
+
         } else {
-  
+
         }
+        //clear the answer
+        $scope.userAnswer = []
+        currentfinalAnswer = []
 
       }
-     
+
 
       if (document.getElementById("multiC")) {
         document.getElementById("multiC").remove();
-        window.removeEventListener('mousedown')
+        // window.removeEventListener('mousedown',fire)
+        $("body").off()
       }
 
     }
 
     // input answer
     $scope.nextFocus = function () {
-      currentQuestion++;
+      if (currentQuestion < currentMission[$scope.sequenceIndex].content.length - 1) {
+        currentQuestion++;
+        $scope.mcInput++;
+
+      } else {
+        currentQuestion = 0;
+        $scope.mcInput = 0;
+      }
+
     }
 
 
@@ -139,6 +160,7 @@ angular.module('missionDetail', ['ngRoute'])
       if (!$scope.orderChecked[index]) {
         $scope.inOrder += currentMission[$scope.sequenceIndex].content[index];
         $scope.orderChecked[index] = true;
+        currentfinalAnswer = [$scope.inOrder];
       } else {
         //chosen
       }
@@ -155,11 +177,34 @@ angular.module('missionDetail', ['ngRoute'])
     }
 
     // all missions pass or time due
+    var correctness = [];
     function missionFinish() {
+      var finalScore = {}, qnumber = 0, mvalue = [], scoreSum = 0;
+
+      for (let i = 0; i < currentMission.length; i++) {
+        correctness[i] = 0, mvalue[i] = currentMission[i].value * 1;
+
+        for (let j = 0; j < currentMission[i].answer.length; j++) {
+          qnumber++;
+          if (finalAnswer[i]&&(currentMission[i].answer[j] == finalAnswer[i][j])) {
+            correctness[i]++;
+          }else{
+            correctness[i]=0;
+          }
+        }
+      }
+      for (let i = 0; i < mvalue.length; scoreSum += mvalue[i] * correctness[i], i++)
+        //accuracy
+        finalScore.accu = correctness.reduce((a, b) => a + b, 0) / qnumber;
+      finalScore.score = scoreSum;
+      finalScore.id = $rootScope.missionInfo.exerciseId;
+      finalScore.time = $rootScope.missionInfo.timeLength - timeLeft;
+      finalScore.coins = $rootScope.missionInfo.coins;
+     // finalScore.time = zeroPadding(Math.floor(timel / 3600), 2) + ':' + zeroPadding(Math.floor(timel % 3600 / 60), 2) + ':' + zeroPadding((timel % 3600 % 60), 2);
       // time to calculate the accuracy and pop over the window
       $scope.finishFlag = true;
       // timeConsume point
-      $rootScope.$emit('missionFinish', $rootScope.missionInfo.exerciseId)
+      $rootScope.$emit('missionFinish', finalScore)
 
       console.log('..sending')
     }
@@ -219,15 +264,16 @@ angular.module('missionDetail', ['ngRoute'])
         var $this = document.getElementById(lid)
         active = index;
         $scope.mcMatch = active;
-       // $scope.apply()
+        // $scope.apply()
         mid_startx = $this.dataset.left;
         mid_starty = $this.dataset.top;
         all_start[index] = [mid_startx, mid_starty]
         event.preventDefault();
       }
       //end	
-      $scope.drawLineend = function (index) {
+      $scope.drawLineend = function (ans, index) {
         pair[active] = index;
+        currentfinalAnswer[active] = ans;
         console.log(pair)
         var $thisR = $('#rightItem' + index)
         lastX = $thisR.attr('data-left');
@@ -249,12 +295,13 @@ angular.module('missionDetail', ['ngRoute'])
 
         context.restore();
         $scope.mcMatch = -1;
+
       }
 
       $scope.clearline = function () {//清除
         context.clearRect(0, 0, box.find(".show").width(), box.find(".show").height());
         pair = [];
-        all_start =[]
+        all_start = []
         box.find(".showleft").children("span").each(function (index, element) {
           $(this).removeClass("addstyle");
           $(this).attr("data-sel", "0");
@@ -293,7 +340,7 @@ angular.module('missionDetail', ['ngRoute'])
         tabs_num[i].position.x = rect.left;
         tabs_num[i].position.y = rect.top;
         stage.addChild(tabs_num[i])
-        tabs_num[i].alpha = 0.5;
+        tabs_num[i].alpha = 0;
       }
 
 
@@ -318,7 +365,8 @@ angular.module('missionDetail', ['ngRoute'])
 
       stage.interactive = true;
 
-      window.addEventListener("mousedown", fire)
+      // window.addEventListener("mousedown", fire)
+      $("body").on('mousedown', fire)
 
       function fire() {
         console.log('listening shooting..')
@@ -393,6 +441,7 @@ angular.module('missionDetail', ['ngRoute'])
               // set bullet invisible  when hit the answer box
               bullets[b].visible = false;
               $scope.$apply()
+              currentfinalAnswer = [$('#tabs' + i + ' i').text()]
             }
           }
 
