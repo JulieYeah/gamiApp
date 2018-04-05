@@ -1,0 +1,40 @@
+
+[
+    {
+        "name":"abra",
+        "password":"123456",
+        "uid":"00"
+    },
+    {
+        "name":"bullbasaur",
+        "password":"123456",
+        "uid":"01"
+       
+    }, 
+    {
+        "name":"charmander",
+        "password":"123456",
+        "uid":"02"
+    },
+    {
+        "name":"jigglypuff",
+        "password":"123456",
+        "uid":"03"
+
+    },{
+        "name":"mankey",
+        "password":"123456",
+        "uid":"04"
+    },{
+        "name":"pikachu",
+        "uid":"05",
+        "password":"123456"
+    },
+    {
+        "name":"niko",
+        "uid":"06",
+        "password":"123456"
+    }
+
+]
+

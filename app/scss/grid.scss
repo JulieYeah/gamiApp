@@ -14,6 +14,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    &.setHeight{
+        height: 80%;
+    }
 }
 .flex-v-c{
     display: flex;

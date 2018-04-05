@@ -90,7 +90,7 @@ $icon-list: (
     
     &.next{
         right: 25%;
-        top: 40%;
+        top: 50%;
         
         i{
             display:inline-block;
@@ -103,7 +103,8 @@ $icon-list: (
     }
     &.go{
         z-index: 99;
-        right: 20%;
+        right: 10%;
+        bottom:5%;
         i{
             display: inline-block;
             width: 100px;
@@ -127,4 +128,27 @@ $icon-list: (
 
     }
 
+}
+
+.icon{
+    &.star{
+        width: 36px;
+        height: 36px;
+        background: url(../img/star.png) no-repeat;
+    }
+    &.distance{
+        width: 36px;
+        height: 36px;
+        background: url(../img/footprints.png) no-repeat;
+    }
+    &.restart{
+        i{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: url(../img/icons_on_Buttons.png);
+            background-position: -90px center;
+            
+        }
+    }
 }

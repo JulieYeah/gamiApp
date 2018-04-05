@@ -2,7 +2,7 @@
 "exerciseId":"02",
 "title":"test",
 "timelimit":"true",
-"timeLength":"600",
+"timeLength":"10",
 "missions":[
 {
 "typeId":"0",
@@ -22,13 +22,6 @@
 "content":["我","是","爸爸","小明"],
 "answer":["我是小明爸爸"],
 "missionId":"103"
-},
-{
-"typeId":"4",
-"content":"叶小明姓什么？",
-"choices":["刘","王","叶"],
-"answer":"叶",
-"missionId":"104"
 }
 ]
 }

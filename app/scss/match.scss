@@ -1,6 +1,5 @@
 #match{
-    .show span.addstyle{ background:#F96;}
-
+  
     .showLeft{
         vertical-align: top;
     }
@@ -15,5 +14,24 @@
         left:0px; 
         top:0px; 
         z-index:-2;
+    }
+    .showItem{
+
+        i{
+            padding: 20px;
+        display: inline-block;
+        background: url(../img/slot.png) no-repeat;
+        background-size: contain;
+        background-position: 50%;
+        
+        }
+        &.addstyle{
+            i{
+                background:url(../img/slot_focus.png) no-repeat;
+                background-size: contain;
+                background-position: 50%;
+            }
+        }
+        
     }
 }

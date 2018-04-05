@@ -28,17 +28,18 @@ angular.module('missionDetail', ['ngRoute'])
     initTimer()
 
     function initTimer() {
-      var timerID = $interval(updateTime, 1000);
+      
       var countTimes = 0, timeLength = $rootScope.missionInfo.timeLength
-      updateTime();
+      var timerID = $interval(updateTime, 1000,timeLength+1);
+      //updateTime();
 
       function updateTime() {
         var cd = timeLength * 1 - countTimes;
         timeLeft = cd;
         $scope.time = zeroPadding(Math.floor(cd / 3600), 2) + ':' + zeroPadding(Math.floor(cd % 3600 / 60), 2) + ':' + zeroPadding((cd % 3600 % 60), 2);
         countTimes++;
-        if (timeLength <= 0) {
-          clearInterval(timerID)
+        if (timeLeft == 0) {
+          $interval.cancel(timerID)
           missionFinish()
 
         }
@@ -134,7 +135,7 @@ angular.module('missionDetail', ['ngRoute'])
 
       } else {
         currentQuestion = 0;
-        $scope.mcInput = 0;
+        $scope.mcInput = -1;
       }
 
     }
@@ -254,7 +255,7 @@ angular.module('missionDetail', ['ngRoute'])
       //连线数据
       var groupstate = false;//按下事件状态，标记按下后的移动，抬起参考
       var pair = [];//配对属性
-      var linewidth = 2, linestyle = "#0C6";//连线绘制--线宽，线色
+      var linewidth = 2, linestyle = "#e8f7f8";//连线绘制--线宽，线色
       //提示线数据
       var mid_startx, mid_starty, mid_endx, mid_endy, active;//存储虚拟连线起始坐标
       var all_start = [], all_end = [];
@@ -265,7 +266,7 @@ angular.module('missionDetail', ['ngRoute'])
         active = index;
         $scope.mcMatch = active;
         // $scope.apply()
-        mid_startx = $this.dataset.left;
+        mid_startx = $this.dataset.left*1+$this.clientWidth*1;
         mid_starty = $this.dataset.top;
         all_start[index] = [mid_startx, mid_starty]
         event.preventDefault();
