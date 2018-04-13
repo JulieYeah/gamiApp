@@ -10,7 +10,8 @@
     "angular-route": "~1.6.9",
     "angular-loader": "~1.6.9",
     "angular-mocks": "~1.6.9",
-    "html5-boilerplate": "~6.0.1"
+    "html5-boilerplate": "~6.0.1",
+    "angular-upload": "^1.0.12"
   },
   "resolutions": {
     "angular-mocks": "~1.6.9",

@@ -1,27 +1,45 @@
 {
 "exerciseId":"02",
-"title":"test",
+"title":"三國群英",
 "timelimit":"true",
-"timeLength":"10",
+"timeLength":"2000",
 "missions":[
-{
-"typeId":"0",
-"content":["1+1=","2-0=","2*2+4*4="],
-"answer":["2","2","20"],
-"missionId":"101"
-},
-{
-"typeId":"1",
-"content":["bed","egg","book"],
-"choices":["a","an","/"],
-"answer":["a","an","a"],
-"missionId":"102"
-},
+
 {
 "typeId":"3",
-"content":["我","是","爸爸","小明"],
-"answer":["我是小明爸爸"],
+"content":["兒子","諸葛亮","是","阿斗","劉備","的"],
+"answer":["阿斗是劉備的兒子"],
 "missionId":"103"
-}
+},
+{
+    "typeId": "5",
+    "value":"15",
+    "content": ["文官","武將"],
+    "choices": [
+        "關羽",
+        "諸葛亮",
+        "張飛", 
+        "趙雲",
+        "呂布",
+        "郭嘉",
+        "徐庶"
+    ],
+    "answer":["1","0","1","1","1","0","0"],
+    "missionId": "105"
+},
+{
+    "typeId":"1",
+    "content":["魏","蜀","吳"],
+    "choices":["孫權","劉備","曹操"],
+    "answer":["曹操","劉備","孫權"],
+    "missionId":"102"
+    },
+    {
+        "typeId":"1",
+        "content":["孫策","劉備","周瑜"],
+        "choices":["大喬","小喬","孫尚香"],
+        "answer":["孫策","周瑜","劉備"],
+        "missionId":"102"
+        }
 ]
 }

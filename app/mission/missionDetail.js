@@ -28,7 +28,19 @@ angular.module('missionDetail', ['ngRoute'])
     initTimer()
 
     function initTimer() {
-      
+      //check the initial mission types
+    let initMission = $scope.missionList[0]
+    if (initMission.typeId == '1') { //for matching
+      setTimeout(function () {
+        creatline($("#match"));
+      }, 500);
+    } else if (initMission.typeId == '4') {
+      setTimeout(function () {
+        initMultiChocie()
+      }, 500);
+
+    }
+
       var countTimes = 0, timeLength = $rootScope.missionInfo.timeLength
       var timerID = $interval(updateTime, 1000,timeLength+1);
       //updateTime();
@@ -64,6 +76,7 @@ angular.module('missionDetail', ['ngRoute'])
       }
 
       $scope.userAnswer = userAnswer;
+      
 
     }
     // interaction to form the input number panel
@@ -81,6 +94,7 @@ angular.module('missionDetail', ['ngRoute'])
     }
     // next mission
     var matchNum = 0, countAnswer = []
+    
     $scope.nextMission = function () {
 
       // save the answer

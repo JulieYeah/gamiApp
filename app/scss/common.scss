@@ -47,11 +47,14 @@ body{
   .ib{
     display: inline-block !important;
   }
+  .b{
+    display: block !important;
+  }
   .pointer{
     cursor: pointer;
   }
   .letter-space{
-    letter-spacing: 1em;
+    letter-spacing: .5em;
   }
 
   

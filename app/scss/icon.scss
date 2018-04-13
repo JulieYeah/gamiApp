@@ -135,6 +135,7 @@ $icon-list: (
         width: 36px;
         height: 36px;
         background: url(../img/star.png) no-repeat;
+        vertical-align: middle;
     }
     &.distance{
         width: 36px;
@@ -142,6 +143,8 @@ $icon-list: (
         background: url(../img/footprints.png) no-repeat;
     }
     &.restart{
+        left: 20%;
+        bottom: 20%;
         i{
             display: inline-block;
             width: 100px;
@@ -150,5 +153,11 @@ $icon-list: (
             background-position: -90px center;
             
         }
+    }
+    &.clock{
+        width: 34px;
+        height:34px;
+        background: url(../img/clock.png) no-repeat;
+        vertical-align: middle;
     }
 }

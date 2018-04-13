@@ -3,29 +3,29 @@
     {
         "name":"abra",
         "time":"true",
-        "points":"600"
+        "points":"256"
     },
     {
         "name":"bullbasaur",
         "time":"true",
-        "points":"600"
+        "points":"247"
     }, 
     {
         "name":"charmander",
         "time":"true",
-        "points":"600"
+        "points":"223"
     },
     {
         "name":"jigglypuff",
         "time":"true",
-        "points":"600"
+        "points":"195"
     },{
         "name":"mankey",
         "time":"true",
-        "points":"600"
+        "points":"189"
     },{
         "name":"pikachu",
         "time":"true",
-        "points":"600"
+        "points":"166"
     }
 ]

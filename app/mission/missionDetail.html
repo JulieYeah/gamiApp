@@ -12,7 +12,7 @@
         <div class="col-1"></div>
         <div class="col-2 teacher_icon_{{$index}} alignR" ng-class="">
             <i class="ib"></i>
-            <div class="question_title"> please do relevant caculations :</div>
+            <div class="question_title">{{mission.note}}</div>
         </div>
         <!-- fill-in-blank -->
         <div class="question_content col-6 alignC" ng-if='mission.typeId == 0'>
@@ -53,7 +53,7 @@
             <!--连线画布-->
             <canvas class="backcanvas" id="canvas2"></canvas>
             <!--提示线画布-->
-            <div class="icon restart" ng-click="clearline()"><i></i></div>
+            <div class="icon ib abs restart" ng-click="clearline()"><i></i></div>
         </div>
 
         <!-- put in order -->
@@ -67,10 +67,10 @@
              <div class="gradientInput b-green placeC orderbox" ng-bind="inOrder">{{inOrder}}</div>
     
         </div>
-        <div ng-click='clearOrder()'>restart</div>
+        <div class="icon ib abs restart" ng-click="clearOrder()"><i></i></div>
         </div>
         <!-- mulitpleChoice  && q&a-->
-        <div class="question_content col-6 alignC" ng-if='mission.typeId == 4'>
+        <div class="question_content col-6 alignC mc" ng-if='mission.typeId == 4'>
             <div class="flex-v-list setHeight">
             <div class="question_item">
                 <div class="">{{mission.content}}</div>
@@ -93,7 +93,7 @@
             <div class="question_item drag-content row" droppable>
                 <!-- the items-->
                 <div class="alignC drag-item" draggable id="item{{$index}}" item="$index" ng-repeat="item in mission.choices">
-                    <i class="gradient-border">{{$index}}</i>
+                    <i class="gradient-border">{{item}}</i>
                 </div>
             </div>
             <!-- the boxes -->

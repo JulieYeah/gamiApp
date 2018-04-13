@@ -7,7 +7,7 @@
     </div>
     <h2 class="pageTitle alignC">Chapters</h2>
     <div class="chaperGroup alignC">
-        <div class="chaptereach ib alignC" ng-repeat="chapter in chapters">
+        <div class="chaptereach rel ib alignC" ng-repeat="chapter in chapters">
             <div class="flipper">
                 <div class="front">
                     <!-- front content -->
@@ -18,12 +18,13 @@
                 <div class="back">
                     <!-- back content ranks-->
                     <div class="validContent flex-v-c" ng-click="enter($index,chapter.exerciseId)">
-                        <p class=""><i>coins:</i> {{chapter.coins}}</p>
-                        <p class=""><i>time:</i> {{chapter.timeLength}}</p>
-                        <p>some notes</p>
+                        <p class=""><i class="ib icon star"></i> {{chapter.coins}}</p>
+                        <p class=""><i class="ib icon clock"></i> {{chapter.timeLength}}</p>
+                        <p>{{chapter.note}}</p>
                     </div>
                 </div>
             </div>
+            <div class="rubber_stamp" ng-show="chapter.finishFlag">Completed</div>
         </div>
     </div>
     <div class="setting abs">

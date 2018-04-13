@@ -2,7 +2,7 @@
    
     <div class="missionlistContainer windowsOutline placeC">
         <h1 class="title">Mission Board</h1>
-    <div class="row alignC">
+    <div class="row alignC" ng-click="gotoPage('mission')">
         <div class="col-{{missionList.length}}" ng-repeat="item in missionList">
             <div class="brackets">
                 <i class="missionNum ib">{{$index+1}}</i><br>{{item.type}}

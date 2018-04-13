@@ -1,0 +1,27 @@
+{
+"exerciseId":"01",
+"title":"test",
+"timelimit":"true",
+"timeLength":"600",
+"missions":[
+{
+    "typeId":"4",
+    "content":"The opposite of go is？",
+    "choices":["come","wait","rest"],
+    "answer":"come",
+    "missionId":"104"
+    },
+    {
+        "typeId":"3",
+        "content":["love","I","MSc","Project"],
+        "answer":["IloveMScProject"],
+        "missionId":"103"
+        },{
+        "typeId":"0",
+        "content":["12*3","17*5","2＋2+4*3"],
+        "answer":["36","85","16"],
+        "missionId":"101"
+        }
+    
+]
+}

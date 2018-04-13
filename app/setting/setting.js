@@ -1,24 +1,40 @@
 'use strict';
 
-angular.module('setting', ['ngRoute'])
+angular.module('setting', ['ngRoute','ngMaterial', 'ngMessages'])
 
 
 
 // controller
 .controller('SettingController', function($scope, $rootScope,$location) {
-  $scope.credentials = {
-     username : '',
-     password : ''
+  $scope.sheet = {
+     //json format
+     title:'',
+     starNum:'',
+     feetNum:'',
+     time:'',
+     missionNum:''
 };  
-  $scope.login = function(credentials) {
-    console.log('login', credentials);
-    //此处验证用户密码是否成功
-    $location.path('/chapter');
-    // AuthService.login(credentials).then(function(user) {
-    //     $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-    //     $scope.$parent.setCurrentUser(user);
-    // }, function() {
-    //     $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-    // });
+$scope.file_changed = function(element) {
+
+
+  var photofile = element.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+      $scope.$apply(function() {
+        console.log(e.target.result)
+          $scope.prev_img = e.target.result;
+      });
   };
+  reader.readAsDataURL(photofile);
+ 
+};
+  $scope.upload = function() {
+
+  };
+  $scope.range = function(n) {
+    return new Array(n);
+};
+$scope.submit = function(){
+  console.log($scope.sheet)
+}
 })

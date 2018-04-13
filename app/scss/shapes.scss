@@ -77,5 +77,39 @@
     }
     
 }
-  
+
+.rubber_stamp {
+    opacity:0.4;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
+    font-family: 'Vollkorn', serif;
+    font-size: 29px;
+    line-height: 36px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ea0b0b;
+    border: 7px solid #e20c00;
+    float: left;
+    padding: 10px 7px;
+    border-radius: 10px;
+    
+    opacity: 0.8;
+    -webkit-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    position:absolute;
+    top:55%;
+    right: 0;
+  }
+  .rubber_stamp::after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    top: -10px;
+    left: -10px;
+    padding: 10px;
+    // background: url(https://raw.github.com/domenicosolazzo/css3/master/img/noise.png) repeat;
+  }
   

@@ -2,43 +2,47 @@
 [
     {
         "exerciseId":"00",
-        "title":"通识评估",
+        "title":"通識評估",
         "timelimit":"true",
         "timeLength":"600",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
         "finishFlag":false,
-        "coins":"200"
+        "coins":"200",
+        "note":"五大題型的基本使用"
     },
     {
         "exerciseId":"01",
-        "title":"分数专题",
+        "title":"整數專題",
         "timelimit":"true",
         "timeLength":"600",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
         "finishFlag":true,
-        "coins":"400"
+        "coins":"400",
+        "note":"任務已完成"
     }, 
     {
         "exerciseId":"02",
-        "title":"迷雾森林",
+        "title":"三國群英",
         "timelimit":"true",
-        "timeLength":"10ß",
+        "timeLength":"2000",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
         "finishFlag":false,
-        "coins":"600"
+        "coins":"600",
+        "note":"三國主題練習"
     },
     {
         "exerciseId":"03",
-        "title":"王后雄",
+        "title":"MCs",
         "timelimit":"true",
         "timeLength":"600",
         "createdAt":"2018-04-01",
         "createdBy":"Julie",
         "finishFlag":false,
-        "coins":"100"
+        "coins":"100",
+        "note":"選擇題的大集合"
     }
 ]
 

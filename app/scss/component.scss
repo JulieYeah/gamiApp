@@ -29,7 +29,7 @@
            
         }
         .pageTitle{
-            @include font-size(24px);
+            @include font-size(36px);
             color: #fff;
         }
         .setting{
@@ -99,7 +99,8 @@
 .chaperGroup{
     height: 80%;
     width: 92%;
-    margin: 40px auto;
+    margin: 0px auto;
+    padding-top: 20px;
     .chaptereach{
         @include font-size(16px);
         width: 19.6%;
@@ -126,6 +127,7 @@
     background: url('../img/base.png') no-repeat;
         p{
             line-height: 20px;
+            margin:20px;
         }
     .front{
         backface-visibility: hidden;
@@ -180,14 +182,15 @@
 }
 
 .icon-tabs{
-    background-image: url(../img/slotbg.png);
-    width:80px;
+    background: url(../img/slotbg.png) no-repeat;
     height: 80px;
-    background-size: 100% 100%;
-    margin: 0 50px;
+    padding: 0 20px;
+   // @include font-size(20px);
+    background-size: contain;
+    background-position: 50% 50%;
     i{
         margin: 25px auto;
-        @include font-size(24px);
+        @include font-size(20px);
         
     }
     // cursor: pointer;
@@ -229,8 +232,10 @@
         background-size: contain;
         //z-index: -99;
         opacity: .9;
+       // @include font-size(23px);
         .blanks{
             height:80%;
+            @include font-size(22px)
         }
         .question_item{
             line-height: 50px;
@@ -294,14 +299,15 @@
     left: 0;
     right: 0;
     bottom: 0;
+    background: #ffffff66;
     .leaderboard{
     width: 50%;
     position: absolute;
     left: 25%;
     right: 25%;
-    top: 25%;
-    background:＃9ad9e4e3;
-    color: black;
+    top: 20%;
+    background:#021527e6;
+    color: #f9eaea;
     .factor-group{
         background: gray;
         width: 100px;
@@ -315,13 +321,14 @@
 }
 .leadheader {
     width: 100%;
-    height: 20px;
-    border:1px solid rgba(0, 168, 232, 0.79);
+    height: 30px;
+    border-bottom:1px solid rgba(0, 168, 232, 0.79);
     text-align: center;
     border-radius: 5px 5px 0 0;
     margin: 0;
     padding-top: 20px;
     padding: 10px 0;
+    @include font-size(27px);
     i{
         padding-right: 20px;
     }
@@ -460,6 +467,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin:0 1% !important;
 
 }
 
@@ -590,3 +598,87 @@
     /* width: 80%; */
     margin: 0 auto;
 }
+
+.profile {
+    opacity: .8;
+    font-family: "Source Sans Pro", sans-serif;
+    max-width: 360px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.13);
+    .pro-avatar{
+        width: 100%;
+        height: auto;
+    }
+    .username{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 10px;
+    text-align: center;
+    z-index: 2;
+    p:first-of-type{
+        @include font-size(24px);
+    }
+
+}
+.section1{
+    &::after{
+        content: "";
+        width: 100%;
+        height: 120px;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), black);
+        background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0), black);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }    
+}
+.section2{
+    width: 100%;
+    background: #fff;
+    padding: 50px 30px 25px;
+    position: relative;
+}
+.info{
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    .number{
+        color: #4d4d4d;
+        font-size: 27px;
+        margin-bottom: 5px;
+    }
+    .factor{
+        color: #62b7ba;
+        font-size: 16px;
+    }
+    
+}
+  }
+
+
+  .mc{
+      .question_item{
+          @include font-size(22px);
+      }
+  }
+//setting page
+  .worksheet{
+      .orignal{
+        padding: 50px;
+        img{
+            width: 100%;
+        }
+      }
+      .sheet-set{
+          background:#fff;
+          padding: 25px;
+    }
+  }
+
+  

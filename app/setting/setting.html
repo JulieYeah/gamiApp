@@ -1,4 +1,122 @@
-<div class="setting" ng-controller="SettingController">
-  <p>your wonderful setting page</p>
+<div class="setting">
+  <p>upload the worksheet</p>
+  <button class="md-raised md-primary md-button md-ink-ripple" type="button">Upload</button>
+  <input class="upload" ng-model="photo" onchange="angular.element(this).scope().file_changed(this)" type="file" accept="image/*"
+  />
+  <div class="row worksheet">
+    <div class="col-4 orignal">
+      <img src="{{prev_img}}" />
+    </div>
+
+    <div class="col-6 sheet-set">
+      <form name="sheetForm">
+
+        <md-input-container class="md-block">
+          <label>Chapter Title</label>
+          <input md-maxlength="10" required="" md-no-asterisk="" name="title" ng-model="sheet.title">
+          <div ng-messages="sheetForm.description.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The description must be less than 10 characters long.</div>
+          </div>
+        </md-input-container>
+
+        <div layout="row">
+          <md-input-container flex="50">
+            <label>Star Rewards</label>
+            <input required="" name="star" ng-model="sheet.starNum">
+            <div ng-messages="sheetForm.star.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container flex="50">
+            <label>Distance Rewards</label>
+            <input required="" name="feetNum" ng-model="sheet.feetNum">
+            <div ng-messages="sheetForm.feetNum.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <md-input-container flex="50">
+            <label>Time Limit</label>
+            <input required="" name="time" ng-model="sheet.time">
+            <div ng-messages="sheetForm.star.$error">
+                <div ng-message="required">This is required.</div>
+              </div>
+          </md-input-container>
+          <md-input-container flex="50">
+            <label>Mission Number</label>
+            <input required="" type="number" step="any" name="missionNum" ng-model="sheet.missionNum" min="2" max="12">
+            <div ng-messages="sheetForm.missionNum.$error" multiple="" md-auto-hide="false">
+                <div ng-message="required">
+                  You have to enter a number.
+                </div>
+    
+                <div ng-message="min">
+                  There should be at least two missions inside a chapter.
+                </div>
+    
+                <div ng-message="max">
+                  {{sheetForm.missionNum.$viewValue}} over 12? I do not think kids will like so many missions.
+                </div>
+              </div>
+          </md-input-container>
+        </div>
+        <div layout="row" ng-repeat="num in range(sheet.missionNum) track by $index">
+            <md-input-container flex="50" class="md-block">
+                <label>Probelm Type</label>
+                <md-select name="type{{index}}" class="select" ng-model="sheet.mission[$index].type" required="">
+                  <md-option value="0">填空题</md-option>
+                  <md-option value="1">连线题</md-option>
+                  <md-option value="2">判断题</md-option>
+                  <md-option value="3">排序题</md-option>
+                  <md-option value="4">选择题</md-option>
+                  <md-option value="5">归类题</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container  flex="50"class="md-block">
+                <label>Question</label>
+                <input required="" name="que" ng-model="sheet.mission[$index].que">
+          
+            </md-input-container>
+            <md-input-container  flex="50"class="md-block">
+              
+                <label>Answer</label>
+                <input required="" name="ans" ng-model="sheet.mission[$index].ans">
+            </md-input-container>
+        </div>
+      
+
+    
+        <md-input-container class="md-block">
+          <md-checkbox name="tos" ng-model="sheet.tos" required="">
+            I accept the terms of service.
+          </md-checkbox>
+          <div ng-messages="sheetForm.tos.$error" multiple="" md-auto-hide="false">
+            <div ng-message="required">
+              You must accept the terms of service before you can proceed.
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <md-switch class="md-primary" name="special" ng-model="sheet.special" required="">
+            Enable special options.
+          </md-switch>
+          <div ng-messages="sheetForm.special.$error" multiple="">
+            <div ng-message="required">
+              You must enable all special options before you can proceed.
+            </div>
+          </div>
+        </md-input-container>
+        <div>
+          <button class="md-raised md-primary md-button md-ink-ripple" type="submit" ng-click="submit()">Submit</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
 
 </div>
