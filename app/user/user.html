@@ -1,7 +1,7 @@
 <div class="user">
   <div id="rolarBody" class="view-2D zoom-large data-close controls-close set-speed">
     <div id="navbar">
-      <h1>User Center
+      <h1 class="alignC">Your Universe
         <br>
       </h1>
     </div>
@@ -10,7 +10,8 @@
     
       <div class="profile">
         <section class="section1 rel">
-          <img class="pro-avatar" src="./img/user.jpeg" alt="Twitter Profile Picture">
+          <img class="pro-avatar" ng-src="{{user.imgUrl}}" alt="Twitter Profile Picture" ng-click="changeAvatar()">
+          <input class="upload img" ng-model="photo" onchange="angular.element(this).scope().changeAvatar(this)" type="file" accept="image/*"/>
           <div class="username">
             <p>{{user.name}}</p>
             <p class="nickname">{{user.nickname}}</p>
@@ -33,8 +34,21 @@
               <span class="number b">96</span>
               <span class="factor b">Accurancy</span>
             </div>
-            <div class="alignC">Level 1 - Mercury</div>
+         
+            <div class="alignL">Level {{user.level}} - {{level}}</div>
           </div>
+          <div class="info row">
+              <div class="col-5 alignC">
+                <span class="number b">{{user.stars}}</span>
+                <span class="factor b">Stars </span>
+              </div>
+  
+              <div class="col-5 alignC">
+                <span class="number b">{{user.distance}}</span>
+                <span class="factor b">Distance</span>
+              </div>
+  
+            </div>
         </section>
       </div>
     </div>
@@ -156,5 +170,11 @@
         </div>
       </div>
     </div>
+
+    <div class="abs gicon lists bottom">
+        <i class="ib" ng-click="gotoPage('chapter')"></i>
+    </div>
+ 
   </div>
+ 
 </div>

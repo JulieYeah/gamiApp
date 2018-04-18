@@ -26,7 +26,7 @@ angular.module('missionDetail', ['ngRoute'])
     $scope.missionList = $rootScope.missionInfo.missions;
     initAnswerBox()
     initTimer()
-
+    var timerID;
     function initTimer() {
       //check the initial mission types
     let initMission = $scope.missionList[0]
@@ -42,7 +42,7 @@ angular.module('missionDetail', ['ngRoute'])
     }
 
       var countTimes = 0, timeLength = $rootScope.missionInfo.timeLength
-      var timerID = $interval(updateTime, 1000,timeLength+1);
+      timerID = $interval(updateTime, 1000,timeLength+1);
       //updateTime();
 
       function updateTime() {
@@ -51,7 +51,7 @@ angular.module('missionDetail', ['ngRoute'])
         $scope.time = zeroPadding(Math.floor(cd / 3600), 2) + ':' + zeroPadding(Math.floor(cd % 3600 / 60), 2) + ':' + zeroPadding((cd % 3600 % 60), 2);
         countTimes++;
         if (timeLeft == 0) {
-          $interval.cancel(timerID)
+         
           missionFinish()
 
         }
@@ -153,6 +153,11 @@ angular.module('missionDetail', ['ngRoute'])
       }
 
     }
+    //clear current Input
+    $scope.clearInput = function(){
+      $scope.userAnswer[currentQuestion] = ''
+      currentfinalAnswer = $scope.userAnswer
+    }
 
 
     // 想做一个出题目的时候 挨个出的 动画效果
@@ -194,6 +199,7 @@ angular.module('missionDetail', ['ngRoute'])
     // all missions pass or time due
     var correctness = [];
     function missionFinish() {
+      $interval.cancel(timerID)
       var finalScore = {}, qnumber = 0, mvalue = [], scoreSum = 0;
 
       for (let i = 0; i < currentMission.length; i++) {
@@ -521,6 +527,12 @@ angular.module('missionDetail', ['ngRoute'])
         //`hit` will be either `true` or `false`
         return hit;
       };
+    }
+
+    //quit
+
+    $scope.quit = function(){
+      missionFinish()
     }
 
   });

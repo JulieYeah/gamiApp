@@ -299,14 +299,15 @@ input, select {
   background-origin: 0 0;
   width: 100px;
   height: 100px; }
+  .gicon i {
+    width: 100px;
+    height: 100px;
+    background: url(../img/icons_on_Buttons.png) no-repeat; }
   .gicon.next {
     right: 25%;
     top: 50%; }
     .gicon.next i {
       display: inline-block;
-      width: 100px;
-      height: 100px;
-      background: url(../img/icons_on_Buttons.png) no-repeat;
       background-position: right center; }
   .gicon.go {
     z-index: 99;
@@ -314,9 +315,6 @@ input, select {
     bottom: 5%; }
     .gicon.go i {
       display: inline-block;
-      width: 100px;
-      height: 100px;
-      background: url(../img/icons_on_Buttons.png) no-repeat;
       background-position: 0 76%; }
   .gicon.back {
     background-position: 390px 0;
@@ -324,10 +322,11 @@ input, select {
     bottom: 10%; }
     .gicon.back i {
       display: inline-block;
-      width: 100px;
-      height: 100px;
-      background: url(../img/icons_on_Buttons.png) no-repeat;
       background-position: left; }
+  .gicon.user i {
+    background-position: 50% 75%; }
+  .gicon.lists i {
+    background-position: 50% 50%; }
 
 .icon.star {
   width: 36px;
@@ -1017,11 +1016,19 @@ input, select {
     bottom: 0;
     left: 0;
     z-index: 1; }
+  .profile .section1 .upload {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    height: 100%; }
+  .profile .section1 img {
+    max-width: 300px; }
   .profile .section2 {
     width: 100%;
     background: #fff;
     padding: 50px 30px 25px;
-    position: relative; }
+    position: relative;
+    color: #4c4249; }
   .profile .info {
     margin-bottom: 30px;
     overflow: hidden;
@@ -1121,5 +1128,8 @@ body {
 
 .letter-space {
   letter-spacing: .5em; }
+
+.bottom {
+  bottom: 0; }
 
 /*# sourceMappingURL=common.css.map */

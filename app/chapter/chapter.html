@@ -1,8 +1,8 @@
 <div class="chapter">
     <div class="header">
-        <i>1000</i>
+        <i>{{user.distance}}</i>
         <i class="ib icon distance space"></i>
-        <i>110</i>
+        <i>{{user.stars}}</i>
         <i class="ib icon star"></i>          
     </div>
     <h2 class="pageTitle alignC">Chapters</h2>
@@ -38,8 +38,8 @@
     <div class="leaderboard-cover" ng-controller="LeaderboardController" ng-show="show">
         <div class="leaderboard">
                 <div class="abs factor-group">
-                        <p class="factor">Time</p>
-                        <p class="factor">Improve</p>
+                        <p class="factor pointer" ng-click="rankBy('time')">Time</p>
+                        <p class="factor pointer" ng-click="rankBy('score')">Improve</p>
                     </div>
                 <h2 class="leadheader">Leaderboard<i class="floatR pointer" ng-click="show=!show">x</i></h2>
 

@@ -636,12 +636,23 @@
         left: 0;
         z-index: 1;
     }    
+    .upload{
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        height: 100%;
+    }
+    img{
+        max-width: 300px;
+    }
 }
 .section2{
     width: 100%;
     background: #fff;
     padding: 50px 30px 25px;
     position: relative;
+    color: rgb(76, 66, 73);
+   
 }
 .info{
     margin-bottom: 30px;

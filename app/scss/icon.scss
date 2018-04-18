@@ -87,16 +87,18 @@ $icon-list: (
     background-origin: 0 0;
     width: 100px;
     height: 100px;
+    i{
+        width: 100px;
+        height: 100px;
+        background: url(../img/icons_on_Buttons.png) no-repeat;
+    }
     
     &.next{
         right: 25%;
         top: 50%;
         
         i{
-            display:inline-block;
-            width: 100px;
-            height: 100px;
-            background: url(../img/icons_on_Buttons.png) no-repeat;
+            display:inline-block;        
             background-position: right center;
             
         }
@@ -107,9 +109,6 @@ $icon-list: (
         bottom:5%;
         i{
             display: inline-block;
-            width: 100px;
-            height: 100px;
-            background: url(../img/icons_on_Buttons.png) no-repeat;
             background-position: 0 76%;    
         }
     }
@@ -120,12 +119,22 @@ $icon-list: (
         bottom: 10%;
         i{
             display: inline-block;
-            width: 100px;
-            height: 100px;
-            background:url(../img/icons_on_Buttons.png) no-repeat;
             background-position: left;
         }
 
+    }
+    &.user{
+        i{
+            background-position:50% 75%
+    
+        }
+    }
+    &.lists{
+       
+        i{
+            background-position:50% 50%
+    
+        }
     }
 
 }

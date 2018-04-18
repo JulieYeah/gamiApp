@@ -5,25 +5,19 @@ angular.module('user', ['ngRoute'])
 
 
 // controller
-.controller('UserController', function($scope, $rootScope,$location) {
+.controller('UserController', function($scope, $rootScope,$location,$http) {
   var rolarBody= $('#rolarBody'),
   universe = $("#universe"),
   solarsys = $("#solar-system");
 
-  $scope.user= {
-    imageId:'0',
-    name:'YEYAYA',
-    nickname:'JulieYe',
-    passMissions:'100',
-    allMissions:'150',
-    currentLevel:'2'
-  }
+ $scope.level='mercury';
+
   
 
 var init = function() {
   //judge where the user are
   //get user basic info
-  var level = $scope.user.currentLevel,position;
+  var level = $rootScope.user.level,position;
   switch(level){
     case '0':
     position= 'sun'
@@ -58,10 +52,24 @@ var init = function() {
     $(this).dequeue();
   });
   solarsys.removeClass().addClass(position)
+  $scope.level = position*1+1;
 };
 
 setTimeout(function () {
   init()
 }, 1000);
+
+$scope.changeAvatar=function(element){
+  var photofile = element.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+      $scope.$apply(function() {
+        console.log(e.target.result)
+          $scope.user.imgUrl = e.target.result;
+      });
+  };
+  reader.readAsDataURL(photofile);
+ 
+}
 
 })

@@ -27,23 +27,25 @@
                 <div class="abs gicon next ib pointer" ng-click="nextFocus()">
                     <i></i>
                 </div>
+                <div class="icon ib abs restart" ng-click="clearInput()">
+                        <i></i>
+                </div>
             </div>
 
         </div>
-<!-- 连连看 -->
+        <!-- 连连看 -->
         <div class="question_content col-6 alignC rel demo" id="match" ng-if='mission.typeId == 1'>
-            
+
             <div class="question_item row show">
                 <div class="col-6 showLeft">
-                    <span class="showItem leftItem pointer" top='0' ng-class="{'addstyle':$index==mcMatch}" ng-repeat="item in mission.content"
-                        >
+                    <span class="showItem leftItem pointer" top='0' ng-class="{'addstyle':$index==mcMatch}" ng-repeat="item in mission.content">
                         <i id="leftItem{{$index}}" ng-click="drawLine($index)">{{item}}</i>
                         </br>
                     </span>
                 </div>
                 <div class="col-5 showRight alignC">
                     <span class="showItem rightItem pointer" ng-repeat="item in mission.content">
-                        <i id="rightItem{{$index}}"  ng-click="drawLineend(mission.choices[$index],$index)">{{mission.choices[$index]}}</i>
+                        <i id="rightItem{{$index}}" ng-click="drawLineend(mission.choices[$index],$index)">{{mission.choices[$index]}}</i>
                         </br>
                     </span>
                     </br>
@@ -53,43 +55,47 @@
             <!--连线画布-->
             <canvas class="backcanvas" id="canvas2"></canvas>
             <!--提示线画布-->
-            <div class="icon ib abs restart" ng-click="clearline()"><i></i></div>
+            <div class="icon ib abs restart" ng-click="clearline()">
+                <i></i>
+            </div>
         </div>
 
         <!-- put in order -->
         <div class="question_content col-6 alignC" ng-if='mission.typeId == 3'>
             <div class="flex-v-list setHeight">
-            <div class="question_item row">
-                <div class="col-{{mission.content.length-1}} pointer slot" ng-repeat="item in mission.content" ng-click='putOrder($index)'>
-                    <i>{{item}}</i>
-                </div> 
+                <div class="question_item row">
+                    <div class="col-{{mission.content.length-1}} pointer slot" ng-repeat="item in mission.content" ng-click='putOrder($index)'>
+                        <i>{{item}}</i>
+                    </div>
+                </div>
+                <div class="gradientInput b-green placeC orderbox" ng-bind="inOrder">{{inOrder}}</div>
+
             </div>
-             <div class="gradientInput b-green placeC orderbox" ng-bind="inOrder">{{inOrder}}</div>
-    
-        </div>
-        <div class="icon ib abs restart" ng-click="clearOrder()"><i></i></div>
+            <div class="icon ib abs restart" ng-click="clearOrder()">
+                <i></i>
+            </div>
         </div>
         <!-- mulitpleChoice  && q&a-->
         <div class="question_content col-6 alignC mc" ng-if='mission.typeId == 4'>
             <div class="flex-v-list setHeight">
-            <div class="question_item">
-                <div class="">{{mission.content}}</div>
-            </div>
-            <!-- multiple choice -->
-            <div class="choice_slot row" ng-if="mission.typeId==4">
-                <div class="alignC col-{{mission.choices.length}}" ng-repeat="choice in mission.choices">
-                    <span class="icon-tabs ib" id='tabs{{$index}}'>
-                        <i class="ib" ng-class="{'Blazing':$index==mcAnswer}">{{choice}}</i>
-                    </span>
+                <div class="question_item">
+                    <div class="">{{mission.content}}</div>
                 </div>
-            </div>
+                <!-- multiple choice -->
+                <div class="choice_slot row" ng-if="mission.typeId==4">
+                    <div class="alignC col-{{mission.choices.length}}" ng-repeat="choice in mission.choices">
+                        <span class="icon-tabs ib" id='tabs{{$index}}'>
+                            <i class="ib" ng-class="{'Blazing':$index==mcAnswer}">{{choice}}</i>
+                        </span>
+                    </div>
+                </div>
             </div>
             <canvas id="multiC"></canvas>
         </div>
 
         <!-- catergorize -->
         <div class="question_content col-6 alignC" ng-if='mission.typeId == 5' ng-controller="DragDropCtrl">
-    
+
             <div class="question_item drag-content row" droppable>
                 <!-- the items-->
                 <div class="alignC drag-item" draggable id="item{{$index}}" item="$index" ng-repeat="item in mission.choices">
@@ -146,10 +152,10 @@
         </div>
 
     </div>
-    <div class="floatL gicon-start">
+    <div class="floatL gicon lists">
         <i class="ib" ng-click="gotoPage('chapter')"></i>
     </div>
-    <div class="floatR gicon-pause">
+    <div class="floatR gicon user">
         <i class=" ib" ng-click="gotoPage('user')"></i>
     </div>
 

@@ -5,7 +5,7 @@ angular.module('login', ['ngRoute'])
 
 
   // controller
-  .controller('LoginController',function ($window,$scope, $rootScope, $location,$filter) {
+  .controller('LoginController',function ($window,$scope, $rootScope, $location,$filter,$http) {
 
     $scope.credentials = {
       username: '',
@@ -26,6 +26,19 @@ angular.module('login', ['ngRoute'])
       // }, function() {
       //     $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
       // });
+      $scope.userid = '00'
+
+  $http({
+    method: 'GET',
+    url: './user/user'+$scope.userid+'.json',
+    dataType: 'json',
+    contentType: "application/json"
+  }).then(function (response) {
+    $rootScope.user = response.data;
+    console.log($scope.user,'..')
+  }, function (response) {
+    // 请求失败执行代码
+  });
     };
 
     function welcomeText() {
