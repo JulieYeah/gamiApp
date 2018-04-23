@@ -2,7 +2,7 @@
     "userId": "00",
     "name": "YEYAYA",
     "nickname":"JulieYe",
-    "imgUrl":"img/user/user00.png",
+    "imgUrl":"static/img/user/user00.png",
     "passMissions":"100",
     "allMissions":"150",
     "currentLevel":"2",

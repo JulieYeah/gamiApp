@@ -1,6 +1,6 @@
 <div class="setting">
   <p>upload the worksheet</p>
-  <button class="md-raised md-primary md-button md-ink-ripple" type="button">Upload</button>
+  <button class="md-raised md-primary md-button md-ink-ripple" type="button" ng-click="upload()"> Upload</button>
   <input class="upload" ng-model="photo" onchange="angular.element(this).scope().file_changed(this)" type="file" accept="image/*"
   />
   <div class="row worksheet">

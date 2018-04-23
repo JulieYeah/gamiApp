@@ -350,12 +350,12 @@ angular.module('missionDetail', ['ngRoute'])
       var stage = new PIXI.Container();
 
       // create a texture from an image path
-      var texture = PIXI.Texture.fromImage('./img/assets/spaceship.png');
-      var carrotTex = PIXI.Texture.fromImage('./img/assets/bullet.png');
-      var shipFrame = PIXI.Texture.fromImage('./img/assets/ship_frame.png');
+      var texture = PIXI.Texture.fromImage('./static/img/assets/spaceship.png');
+      var carrotTex = PIXI.Texture.fromImage('./static/img/assets/bullet.png');
+      var shipFrame = PIXI.Texture.fromImage('./static/img/assets/ship_frame.png');
       var tabs = [], tabs_num = [];
       for (var i = 0; i < currentMission[$scope.sequenceIndex].choices.length; i++) {
-        tabs[i] = PIXI.Texture.fromImage('./img/slotbg.png');
+        tabs[i] = PIXI.Texture.fromImage('./static/img/slotbg.png');
         tabs_num[i] = new PIXI.Sprite(tabs[i])
         var rect = document.getElementById('tabs' + i).getBoundingClientRect();
         tabs_num[i].position.x = rect.left;

@@ -18,6 +18,8 @@ angular.module('missionDone', ['ngRoute'])
       
       )
       $scope.finishFlag = true;
+      $rootScope.user.stars =$rootScope.user.stars*1 + data.coins*1;
+      $rootScope.user.distance = $rootScope.user.distance*1+data.score*1;
     });
     
   });
